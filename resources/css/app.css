@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* dashboard */
+.calendar-overview .fc-toolbar-title {
+  @apply text-heading5 text-neutral-600;
+}
+.calendar-overview table thead .fc-col-header-cell {
+  @apply text-paragraph4 text-neutral-600;
+}
+.calendar-overview .fc-header-toolbar .fc-toolbar-chunk:nth-child(3) > button {
+  @apply bg-warm80 opacity-100 rounded-full px-4 border-none;
+}
+.calendar-overview
+  .fc-header-toolbar
+  .fc-toolbar-chunk:nth-child(3)
+  .fc-button-group
+  button:nth-child(1) {
+  @apply bg-skyBlue40 opacity-100 rounded-lg px-4 border-none mr-1;
+}
+.calendar-overview
+  .fc-header-toolbar
+  .fc-toolbar-chunk:nth-child(3)
+  .fc-button-group
+  button:nth-child(2) {
+  @apply bg-skyBlue70 opacity-100 rounded-lg px-4 border-none;
+}
+
+.btn-gradient-default {
+  @apply bg-gradient-to-br from-skyBlue20 to-skyBlue80 bg-[length:200%] hover:bg-right-top transition-default;
+}
+.btn-gradient-nav-active {
+  @apply py-[10px] px-6 bg-gradient-to-br from-skyBlue20 to-skyBlue80 shadow-defaultShadow rounded-lg text-neutral-100 flex items-center gap-2 text-paragraph5;
+}
+.btn-gradient-nav {
+  @apply py-[10px] px-6 ring-2 ring-skyBlue10  hover:ring-0 rounded-lg text-skyBlue70 flex items-center gap-2 text-paragraph5 hover:bg-skyBlue70 hover:text-neutral-100 hover:shadow-defaultShadow transition-default;
+}
+.btn-gradient-logout {
+  @apply py-[10px] px-6 ring-2 ring-warm100  hover:ring-0 rounded-lg text-warm70 flex justify-center items-center gap-2 text-paragraph5 hover:bg-warm100 hover:text-neutral-100 hover:shadow-defaultShadow transition-default;
+}
+
+.transition-default {
+  @apply ease-in-out transition-all duration-300;
+}
+
+.table-peserta-overview tbody tr:nth-last-child(1) {
+  @apply border-none;
+}
+
+.point-keaktifan .MuiLinearProgress-root,
+.poin-detail-peserta .MuiLinearProgress-root {
+  @apply rounded-full overflow-hidden border-2 border-warm80 bg-transparent h-2;
+}
+.point-keaktifan .MuiLinearProgress-root span,
+.poin-detail-peserta .MuiLinearProgress-root span {
+  @apply bg-warm80;
+}
+.monitoring-progress .progress-bar .MuiLinearProgress-root {
+  @apply rounded-full overflow-hidden border-2 border-skyBlue70 bg-transparent h-2;
+}
+.monitoring-progress .progress-bar:nth-child(2) .MuiLinearProgress-root {
+  @apply rounded-full overflow-hidden border-2 border-warm80 bg-transparent h-2;
+}
+.monitoring-progress .progress-bar:nth-child(3) .MuiLinearProgress-root {
+  @apply rounded-full overflow-hidden border-2 border-warm40 bg-transparent h-2;
+}
+.monitoring-progress .progress-bar .MuiLinearProgress-root span {
+  @apply bg-skyBlue70;
+}
+.monitoring-progress .progress-bar:nth-child(2) .MuiLinearProgress-root span {
+  @apply bg-warm80;
+}
+.monitoring-progress .progress-bar:nth-child(3) .MuiLinearProgress-root span {
+  @apply bg-warm40;
+}
+
+.list-jadwal .MuiAvatarGroup-root div {
+  @apply border-none text-paragraph1 shadow-defaultShadow;
+}
+.list-jadwal > a:nth-child(even) {
+  @apply bg-skyBlue80;
+}
+
+.forum-chat-chart canvas {
+  @apply w-full
+}
+/* user */
+.swiper-kursus-terbaru .swiper-scrollbar-horizontal {
+  @apply bg-neutral-200 mb-10;
+}
+
+.swiper-kursus-terbaru .swiper-scrollbar-drag {
+  @apply bg-skyBlue70;
+}
+
+.swiper-kursus-terbaru .swiper-button-prev {
+  @apply left-[47%];
+}
+.swiper-kursus-terbaru .swiper-button-next {
+  @apply right-[47%];
+}
+
+.swiper-kursus-terbaru .swiper-button-prev,
+.swiper-kursus-terbaru .swiper-button-next {
+  @apply h-8 w-8 bg-skyBlue50 rounded-lg transition-default top-[98%];
+}
+.swiper-kursus-terbaru .swiper-button-prev:hover,
+.swiper-kursus-terbaru .swiper-button-next:hover {
+  @apply bg-skyBlue70;
+}
+.swiper-kursus-terbaru .swiper-button-prev::after,
+.swiper-kursus-terbaru .swiper-button-next::after {
+  @apply text-white text-lg font-bold;
+}
+.release input[type="radio"]:checked ~ div > div,
+.abjad input[type="radio"]:checked ~ div > div {
+  @apply bg-skyBlue70;
+}
+.ketersediaan input[type="checkbox"]:checked ~ div .check {
+  @apply text-skyBlue70;
+}
