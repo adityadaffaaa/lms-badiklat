@@ -4,7 +4,9 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LinearProgress from "@mui/material/LinearProgress";
 
 import { dataPeserta } from "../../static/dashboard";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import Dashboard from "@/layouts/dashboard/Dashboard";
+import { Link } from "@inertiajs/react";
 export const Peserta = () => {
   return (
     <section className='mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex md:border-2 md:border-skyBlue10 flex-col w-full gap-3 h-full p-4 bg-white shadow-defaultShadow rounded-lg'>
@@ -14,7 +16,7 @@ export const Peserta = () => {
           return (
             <Link
               key={index}
-              to='/peserta/detail-peserta'
+              href='/peserta/detail-peserta'
               className='flex flex-col md:flex-row gap-2 w-full p-3 bg-white items-center justify-between transition-default hover:shadow-defaultShadow rounded-lg'
             >
               <div className='flex flex-row items-center w-full md:w-[40%] justify-between'>
@@ -63,5 +65,7 @@ export const Peserta = () => {
     </section>
   );
 };
+
+Peserta.layout = page => <Dashboard children={page} title={"Peserta"} />
 
 export default Peserta;

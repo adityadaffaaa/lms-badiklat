@@ -4,6 +4,7 @@ import {
   overviewCardHeadData,
   jadwal
 } from '../../static/dashboard';
+import Dashboard from '@/layouts/dashboard/Dashboard';
 import { PieChart, ButtonGradient } from '../../components/dashboard';
 import routes from '../../routes';
 import FullCalendar from '@fullcalendar/react';
@@ -127,5 +128,7 @@ export const Overview = () => {
     </div >
   );
 };
+
+Overview.layout = page => <Dashboard children={page} title={"Overview"} />
 
 export default Overview;

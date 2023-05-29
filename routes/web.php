@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
+// use App\Http\Controllers\ProfileController;
+// use Illuminate\Foundation\Application;
+// use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,15 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function(){
-    return Inertia::render('dashboard/Dashboard');
-});
+Route::get('/', [DashboardController::class, 'index']);
 
+Route::get('/peserta', [DashboardController::class, 'peserta']);
 
+Route::get('/forum-chat', [DashboardController::class, 'forumchat']);
+
+Route::get('/jadwal', [DashboardController::class, 'jadwal']);
+
+Route::get('/fasilitator', [DashboardController::class, 'fasilitator']);
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -41,4 +46,4 @@ Route::get('/', function(){
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

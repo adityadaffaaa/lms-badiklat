@@ -30,7 +30,7 @@ const routes = [
         title: 'Forum Chat',
         element: <ForumChat />,
         icon: <ChatBubbleIcon />,
-        path: '/chat',
+        path: '/forum-chat',
       },
       {
         title: 'Jadwal',

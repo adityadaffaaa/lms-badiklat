@@ -1,6 +1,8 @@
 import { React, useState } from 'react';
-
-import { dataJadwal, dataPeserta } from '../../static/dashboard';
+import {
+  dataJadwal,
+  dataPeserta
+} from '../../static/dashboard';
 import {
   ButtonGradient,
   DialogJadwal,
@@ -16,6 +18,7 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 import IconButton from '@mui/material/IconButton';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import Dashboard from '@/layouts/dashboard/Dashboard';
 
 export const Jadwal = () => {
   const [openTambahJadwal, setOpenTambahJadwal] = useState(false);
@@ -106,5 +109,7 @@ export const Jadwal = () => {
     </section>
   );
 };
+
+Jadwal.layout = page => <Dashboard children={page} title={"Jadwal"} />
 
 export default Jadwal;

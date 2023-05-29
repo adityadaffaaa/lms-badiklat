@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import {
   ButtonGradient,
   FasilitatorDialog
@@ -9,15 +9,18 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddIcon from '@mui/icons-material/Add';
 import IconButton from "@mui/material/IconButton";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import Dashboard from '@/layouts/dashboard/Dashboard';
+import { Link } from '@inertiajs/react';
+
 export const Fasilitator = () => {
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
-  let navigate = useNavigate();
-  const routeChange = () => {
-    let path = "/fasilitator/detail-fasilitator"
-    navigate(path)
-  }
+  // let navigate = useNavigate();
+  // const routeChange = () => {
+  //   let path = "/fasilitator/detail-fasilitator"
+  //   navigate(path)
+  // }
   return (
     <section className='mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex md:border-2 md:border-skyBlue10 flex-col  w-full gap-3 h-full  bg-white shadow-defaultShadow rounded-lg'>
       <div className='flex justify-between p-4'>
@@ -75,7 +78,9 @@ export const Fasilitator = () => {
                     >{`${spj ? "Sudah Ada" : "Belum Ada"}`}</span>
                   </td>
                   <td align='center' className=''>
-                    <ButtonGradient text={"Detail"} padX={"px-4"} padY={"py-1"} onclick={routeChange} />
+                    <Link href=''>
+                      <ButtonGradient text={"Detail"} padX={"px-4"} padY={"py-1"} />
+                    </Link>
                     <IconButton >
                       <DeleteForeverIcon className="text-[#D00000]" sx={{ fontSize: 24 }} />
                     </IconButton>
@@ -90,5 +95,7 @@ export const Fasilitator = () => {
     </section>
   )
 }
+
+Fasilitator.layout = page => <Dashboard children={page} title={"Fasilitator"} />
 
 export default Fasilitator

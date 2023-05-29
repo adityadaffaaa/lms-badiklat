@@ -1,11 +1,10 @@
 import React from 'react';
-import HomeIcon from '@mui/icons-material/Home';
-
-import LogoutIcon from '@mui/icons-material/Logout';
-
+import { Link } from '@inertiajs/react'
 import { NavLink } from 'react-router-dom';
-
 import routes from '../../routes';
+
+import HomeIcon from '@mui/icons-material/Home';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const SideNavBar = () => {
   const { pages, role } = routes[0];
@@ -15,38 +14,50 @@ const SideNavBar = () => {
       <nav className="w-[270px] hidden fixed h-[calc(100%-24px)] lg:flex flex-col justify-between items-center p-4 bg-[#ffffff] shadow-defaultShadow rounded-lg">
         <div className="flex flex-col w-full gap-10">
           <div className="flex flex-row gap-3">
-            <img className="h-10" src="dashboard-assets/logo-bpk.png" alt="" />
+            <img className="h-10" src="assets/dashboard-assets/logo-bpk.png" alt="" />
             <div className="flex flex-col">
               <p className="text-paragraph3 text-neutral-500">Dashboard LMS Badiklat</p>
               <p className="text-paragraph4 text-neutral-400">{`${role.fasilitator ? "Fasilitator" : "Panitia"}`}</p>
             </div>
           </div>
           <menu className="flex flex-col w-full gap-6">
-            <NavLink to="/">
+            <Link href='/'>
+              <button className={`btn-gradient-nav w-full`}>
+                <HomeIcon />
+                Overview
+              </button>
+            </Link>
+            {/* <NavLink to="/">
               {({ isActive }) => (
                 <button className={`${isActive ? 'btn-gradient-nav-active' : 'btn-gradient-nav'} w-full`}>
                   <HomeIcon />
                   Overview
                 </button>
               )}
-            </NavLink>
+            </NavLink> */}
             <p className="text-paragraph5 font-bold text-neutral-400">MENU</p>
             {pages.map(({ title, icon, path }, index) => index === 1 && role.fasilitator ? null : (
-              <NavLink key={index} to={path}>
-                {({ isActive }) => (
-                  <button className={`${isActive ? 'btn-gradient-nav-active' : 'btn-gradient-nav'} w-full`}>
-                    {icon}
-                    {title}
-                  </button>
-                )}
-              </NavLink>
+              <Link key={index} href={path}>
+                <button className={`btn-gradient-nav w-full`}>
+                  {icon}
+                  {title}
+                </button>
+              </Link>
+              // <NavLink key={index} to={path}>
+              //   {({ isActive }) => (
+              //     <button className={`${isActive ? 'btn-gradient-nav-active' : 'btn-gradient-nav'} w-full`}>
+              //       {icon}
+              //       {title}
+              //     </button>
+              //   )}
+              // </NavLink>
             )
             )}
             <p className="text-paragraph5 font-bold text-neutral-400">LOG OUT</p>
-            <a className=" btn-gradient-logout" href="#">
+            <Link className=" btn-gradient-logout" href="#">
               <LogoutIcon />
               Log Out
-            </a>
+            </Link>
           </menu>
         </div>
         <p className="text-paragraph5 text-neutral-400">©2023 Dashboard Workshop Badiklat</p>

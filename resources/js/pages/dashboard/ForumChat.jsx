@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Dashboard from "@/layouts/dashboard/Dashboard";
+import { Link } from "@inertiajs/react";
 import { dataKelompok } from "../../static/dashboard";
 import { stringAvatar } from "../../settings";
 import Avatar from "@mui/material/Avatar";
 import AvatarGroup from "@mui/material/AvatarGroup";
-
 export const ForumChat = () => {
   return (
     <section className="mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex flex-col w-full gap-6 h-full rounded-lg ">
@@ -12,7 +12,7 @@ export const ForumChat = () => {
       <div className="flex flex-wrap gap-5">
         {dataKelompok.map((value, index) => {
           return (
-            <Link key={index} to="/chat/kelompok" className="p-4 flex flex-col group bg-white shadow-defaultShadow rounded-lg gap-4 flex-[1_1_360px] transition-default hover:bg-skyBlue70 hover:text-white">
+            <Link key={index} href="/chat/kelompok" className="p-4 flex flex-col group bg-white shadow-defaultShadow rounded-lg gap-4 flex-[1_1_360px] transition-default hover:bg-skyBlue70 hover:text-white">
               <h5 className="text-heading5 text-neutral-600 group-hover:text-inherit">Kelompok {value.id}</h5>
               <div className="flex flex-row text-neutral-500 gap-4 group-hover:text-inherit">
                 <div className="flex flex-col">
@@ -44,5 +44,6 @@ export const ForumChat = () => {
   );
 };
 
+ForumChat.layout = page => <Dashboard children={page} title={"Forum Chat"}/>
 
 export default ForumChat;
