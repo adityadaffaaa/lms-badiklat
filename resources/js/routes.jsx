@@ -2,8 +2,8 @@ import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
-
-import { ForumChat, Peserta, Jadwal } from './pages/dashboard';
+import HomeIcon from '@mui/icons-material/Home';
+import { ForumChat, Peserta, Jadwal, Overview } from './pages/dashboard';
 
 const routes = [
   {
@@ -14,6 +14,15 @@ const routes = [
     },
     isSignIn: true,
     pages: [
+      {
+        title: 'Overview',
+        element: <Overview />,
+        icon: <HomeIcon />,
+        path: '/',
+      },
+      {
+        element: <p className="text-paragraph5 font-bold text-neutral-400">MENU</p>
+      },
       {
         title: 'Peserta',
         element: <Peserta />,

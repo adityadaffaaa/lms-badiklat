@@ -9,7 +9,7 @@ const Dashboard = ({ children, title }) => {
       <Head title={title}></Head>
       <SideNavBar />
       <main className="flex flex-col md:items-start w-full lg:w-[calc(100%-270px)] gap-3 md:p-3">
-        <NavBar />
+        <NavBar title={title} />
         {children}
       </main>
     </div>

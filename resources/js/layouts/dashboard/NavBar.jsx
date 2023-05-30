@@ -6,7 +6,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 // import { useLocation } from 'react-router-dom';
-const NavBar = ({ title = "Overview" }) => {
+const NavBar = ({ title }) => {
   // const { pathname } = useLocation();
   // const [page] = pathname.split('/').filter((el) => el !== '');
   return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from '@inertiajs/react'
 import { NavLink } from 'react-router-dom';
 import routes from '../../routes';
@@ -8,6 +8,14 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 const SideNavBar = () => {
   const { pages, role } = routes[0];
+  const [active, setActive] = useState(null);
+
+  const handleChange = (index) => {
+    if (active === index) {
+      setActive(null)
+    }
+    setActive(index)
+  }
 
   return (
     <aside className="fixed lg:relative h-screen w-[290px] py-3 pl-3">
@@ -21,36 +29,13 @@ const SideNavBar = () => {
             </div>
           </div>
           <menu className="flex flex-col w-full gap-6">
-            <Link href='/'>
-              <button className={`btn-gradient-nav w-full`}>
-                <HomeIcon />
-                Overview
-              </button>
-            </Link>
-            {/* <NavLink to="/">
-              {({ isActive }) => (
-                <button className={`${isActive ? 'btn-gradient-nav-active' : 'btn-gradient-nav'} w-full`}>
-                  <HomeIcon />
-                  Overview
-                </button>
-              )}
-            </NavLink> */}
-            <p className="text-paragraph5 font-bold text-neutral-400">MENU</p>
-            {pages.map(({ title, icon, path }, index) => index === 1 && role.fasilitator ? null : (
+            {pages.map(({ title, icon, path, element }, index) => index === 3 && role.fasilitator ? null : index === 1 ? element : (
               <Link key={index} href={path}>
-                <button className={`btn-gradient-nav w-full`}>
+                <button onClick={() => handleChange(index)} className={`${active === index ? "btn-gradient-nav-active" : "btn-gradient-nav"}  w-full`}>
                   {icon}
                   {title}
                 </button>
               </Link>
-              // <NavLink key={index} to={path}>
-              //   {({ isActive }) => (
-              //     <button className={`${isActive ? 'btn-gradient-nav-active' : 'btn-gradient-nav'} w-full`}>
-              //       {icon}
-              //       {title}
-              //     </button>
-              //   )}
-              // </NavLink>
             )
             )}
             <p className="text-paragraph5 font-bold text-neutral-400">LOG OUT</p>

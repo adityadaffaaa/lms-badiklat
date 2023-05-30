@@ -41,7 +41,7 @@ export const Kelompok = () => {
           <div className='flex flex-row w-full gap-2'>
             <AccountCircleIcon className='text-neutral-500' />
             <textarea
-              className='outline-none w-full'
+              className='border-none enabled:border-none w-full'
               placeholder='Ketik topik mu disini...'
               name='textfield-topic'
               id=''
