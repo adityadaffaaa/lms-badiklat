@@ -78,7 +78,7 @@ export const Fasilitator = () => {
                     >{`${spj ? "Sudah Ada" : "Belum Ada"}`}</span>
                   </td>
                   <td align='center' className=''>
-                    <Link href=''>
+                    <Link href='fasilitator/detail-fasilitator'>
                       <ButtonGradient text={"Detail"} padX={"px-4"} padY={"py-1"} />
                     </Link>
                     <IconButton >

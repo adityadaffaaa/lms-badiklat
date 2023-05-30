@@ -31,6 +31,18 @@ class DashboardController extends Controller
   {
     return Inertia::render('dashboard/Fasilitator', []);
   }
+  public function detailpeserta()
+  {
+    return Inertia::render('dashboard/DetailPeserta', []);
+  }
+  public function detailfasilitator()
+  {
+    return Inertia::render('dashboard/DetailFasilitator', []);
+  }
+  public function kelompok()
+  {
+    return Inertia::render('dashboard/Kelompok', []);
+  }
   /**
    * Show the form for creating a new resource.
    */

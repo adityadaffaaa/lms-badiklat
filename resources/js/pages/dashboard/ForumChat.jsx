@@ -12,7 +12,7 @@ export const ForumChat = () => {
       <div className="flex flex-wrap gap-5">
         {dataKelompok.map((value, index) => {
           return (
-            <Link key={index} href="/chat/kelompok" className="p-4 flex flex-col group bg-white shadow-defaultShadow rounded-lg gap-4 flex-[1_1_360px] transition-default hover:bg-skyBlue70 hover:text-white">
+            <Link key={index} href="/forum-chat/kelompok" className="p-4 flex flex-col group bg-white shadow-defaultShadow rounded-lg gap-4 flex-[1_1_360px] transition-default hover:bg-skyBlue70 hover:text-white">
               <h5 className="text-heading5 text-neutral-600 group-hover:text-inherit">Kelompok {value.id}</h5>
               <div className="flex flex-row text-neutral-500 gap-4 group-hover:text-inherit">
                 <div className="flex flex-col">

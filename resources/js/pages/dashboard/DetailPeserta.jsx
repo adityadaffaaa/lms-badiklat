@@ -6,6 +6,7 @@ import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import LinearProgress from "@mui/material/LinearProgress";
+import Dashboard from "@/layouts/dashboard/Dashboard";
 
 export const DetailPeserta = () => {
   return (
@@ -259,5 +260,7 @@ export const DetailPeserta = () => {
     </section>
   );
 };
+
+DetailPeserta.layout = page => <Dashboard children={page} title={"Detail Peserta"} />
 
 export default DetailPeserta;

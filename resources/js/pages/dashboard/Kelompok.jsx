@@ -2,6 +2,7 @@ import { React, useState } from "react";
 
 import { dataPeserta, dataTopik, dataThreads } from "../../static/dashboard";
 import { ButtonGradient, ThreadsDialog } from "../../components/dashboard";
+import Dashboard from "@/layouts/dashboard/Dashboard";
 import { stringAvatar } from "../../settings";
 import Avatar from "@mui/material/Avatar";
 import EditIcon from "@mui/icons-material/Edit";
@@ -21,6 +22,8 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 
 const labelDecoration = { inputProps: { "aria-label": "Text Decoration" } };
 const labelReact = { inputProps: { "aria-label": "React" } };
+
+
 
 export const Kelompok = () => {
   const [open, setOpen] = useState(false)
@@ -211,5 +214,6 @@ export const Kelompok = () => {
   );
 };
 
+Kelompok.layout = page => <Dashboard children={page} title={"Kelompok"} />
 
 export default Kelompok;

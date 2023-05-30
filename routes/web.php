@@ -18,14 +18,13 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', [DashboardController::class, 'index']);
-
 Route::get('/peserta', [DashboardController::class, 'peserta']);
-
 Route::get('/forum-chat', [DashboardController::class, 'forumchat']);
-
 Route::get('/jadwal', [DashboardController::class, 'jadwal']);
-
 Route::get('/fasilitator', [DashboardController::class, 'fasilitator']);
+Route::get('/peserta/detail-peserta', [DashboardController::class, 'detailpeserta']);
+Route::get('/forum-chat/kelompok', [DashboardController::class, 'kelompok']);
+Route::get('/fasilitator/detail-fasilitator', [DashboardController::class, 'detailfasilitator']);
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [

@@ -6,6 +6,8 @@ import {
   FasilitatorDialog,
   InputSuratDialog
 } from "../../components/dashboard";
+import Dashboard from '@/layouts/dashboard/Dashboard';
+
 import { aktivitasPeserta } from "../../static/dashboard";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
@@ -19,6 +21,8 @@ import Select from '@mui/material/Select';
 import DownloadIcon from '@mui/icons-material/Download';
 import IconButton from '@mui/material/IconButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+
+
 
 export const DetailFasilitator = () => {
   const [value, setValue] = useState('');
@@ -214,5 +218,7 @@ export const DetailFasilitator = () => {
     </section>
   )
 }
+
+DetailFasilitator.layout = page => <Dashboard children={page} title={"Detail Fasilitator"} />
 
 export default DetailFasilitator
