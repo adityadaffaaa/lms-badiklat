@@ -9,7 +9,6 @@ import LogoutIcon from '@mui/icons-material/Logout';
 const SideNavBar = () => {
   const { pages, role } = routes[0];
   const [active, setActive] = useState(null);
-
   const handleChange = (index) => {
     if (active === index) {
       setActive(null)
