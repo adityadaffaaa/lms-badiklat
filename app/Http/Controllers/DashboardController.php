@@ -14,7 +14,6 @@ class DashboardController extends Controller
   {
     return Inertia::render('dashboard/Overview', []);
   }
-
   public function peserta()
   {
     return Inertia::render('dashboard/Peserta', []);

@@ -23,6 +23,8 @@ export const FasilitatorDialog = ({ open, handleClose, title, textButton }) => {
   const [agama, setAgama] = useState('')
   const [foto, setFoto] = useState(null)
   const [dateValue, setDateValue] = useState(dayjs(date));
+  const [bank, setBank] = useState('');
+
   const handleBidang = (event) => setBidang(event.target.value)
   const handleAgama = (event) => setAgama(event.target.value)
   const handleFoto = (event) => {
@@ -32,6 +34,7 @@ export const FasilitatorDialog = ({ open, handleClose, title, textButton }) => {
       setFoto(null)
     }
   }
+  const handleBank = (event) => setBank(event.target.value);
 
   return (
     <Dialog open={open} onClose={handleClose} fullWidth maxWidth='sm' sx={{ fontFamily: "raleway" }} >
@@ -61,6 +64,23 @@ export const FasilitatorDialog = ({ open, handleClose, title, textButton }) => {
         <div className='flex flex-col'>
           <DialogContentText className=''>
             <h5 className='text-heading5 text-neutral-600'>
+              NIK<span className='text-red-600'>*</span>
+            </h5>
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="topik"
+            label="Masukkan nik"
+            type="number"
+            fullWidth
+            variant="outlined"
+            autoComplete='true'
+          />
+        </div>
+        <div className='flex flex-col'>
+          <DialogContentText className=''>
+            <h5 className='text-heading5 text-neutral-600'>
               NIP<span className='text-red-600'>*</span>
             </h5>
           </DialogContentText>
@@ -75,28 +95,107 @@ export const FasilitatorDialog = ({ open, handleClose, title, textButton }) => {
             autoComplete='true'
           />
         </div>
+        <div className='flex flex-col'>
+          <DialogContentText className=''>
+            <h5 className='text-heading5 text-neutral-600'>
+              NPWP<span className='text-red-600'>*</span>
+            </h5>
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="topik"
+            label="Masukkan npwp"
+            type="text"
+            fullWidth
+            variant="outlined"
+            autoComplete='true'
+          />
+        </div>
+        <div className='flex flex-wrap items-center gap-5'>
+          <div className='flex flex-col gap-3 flex-[1_1_200px]'>
+            <DialogContentText className=''>
+              <h5 className='text-heading5 text-neutral-600'>
+                Nama Bank<span className='text-red-600'>*</span>
+              </h5>
+            </DialogContentText>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Pilih Bank</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={bank}
+                label="Pilih bank"
+                onChange={handleBank}
+              >
+                <MenuItem value={10}>Bank 1</MenuItem>
+                <MenuItem value={20}>Bank 2</MenuItem>
+                <MenuItem value={30}>Bank 3</MenuItem>
+                <MenuItem value={40}>Bank 4</MenuItem>
+                <MenuItem value={"other"}>Lainnya</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
+          <div className='flex flex-col gap-3 flex-[1_1_200px]'>
+            <DialogContentText className=''>
+              <h5 className='text-heading5 text-neutral-600'>
+                Rekening Bank<span className='text-red-600'>*</span>
+              </h5>
+            </DialogContentText>
+            <TextField
+              autoFocus
+              id="topik"
+              label="Masukkan rekening bank"
+              type="number"
+              fullWidth
+              variant="outlined"
+              autoComplete='true'
+            />
+          </div>
+        </div>
         <div className='flex flex-col gap-3'>
           <DialogContentText className=''>
             <h5 className='text-heading5 text-neutral-600'>
-              Bidang<span className='text-red-600'>*</span>
+              Satuan Kerja<span className='text-red-600'>*</span>
             </h5>
           </DialogContentText>
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Masukkan Bidang</InputLabel>
+            <InputLabel id="demo-simple-select-label">Masukkan Satuan Kerja</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={bidang}
-              label="Masukkan Bidang"
+              label="Masukkan Satuan Kerja"
               onChange={handleBidang}
             >
               <MenuItem value={10}>Bidang 1</MenuItem>
               <MenuItem value={20}>Bidang 2</MenuItem>
               <MenuItem value={30}>Bidang 3</MenuItem>
               <MenuItem value={40}>Bidang 4</MenuItem>
+              <MenuItem value={"other"}>Lainnya</MenuItem>
             </Select>
           </FormControl>
         </div>
+        {bidang === "other" &&
+          <div className='flex flex-col'>
+            <DialogContentText className=''>
+              <h5 className='text-heading5 text-neutral-600'>
+                Nama Satuan Kerja<span className='text-red-600'>*</span>
+              </h5>
+            </DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="topik"
+              label="Masukkan nama satuan kerja"
+              type="text"
+              fullWidth
+              variant="outlined"
+              autoComplete='true'
+            />
+          </div>
+        }
+
         <div className='flex flex-col gap-3'>
           <DialogContentText className=''>
             <h5 className='text-heading5 text-neutral-600'>

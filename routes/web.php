@@ -25,6 +25,12 @@ Route::get('/fasilitator', [DashboardController::class, 'fasilitator']);
 Route::get('/peserta/detail-peserta', [DashboardController::class, 'detailpeserta']);
 Route::get('/forum-chat/kelompok', [DashboardController::class, 'kelompok']);
 Route::get('/fasilitator/detail-fasilitator', [DashboardController::class, 'detailfasilitator']);
+Route::get("/user", [UserController::class, 'beranda']);
+Route::get("/user/diklat", [UserController::class, 'diklat']);
+Route::get("/user/fasilitator", [UserController::class, 'fasilitator']);
+Route::get("/user/tanya-kami", [UserController::class, 'tanyakami']);
+
+
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
 //         'canLogin' => Route::has('login'),
