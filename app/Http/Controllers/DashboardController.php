@@ -18,6 +18,14 @@ class DashboardController extends Controller
   {
     return Inertia::render('dashboard/Peserta', []);
   }
+  public function listpeserta()
+  {
+    return Inertia::render('dashboard/ListPeserta', []);
+  }
+  public function panitia()
+  {
+    return Inertia::render('dashboard/Panitia', []);
+  }
   public function forumchat()
   {
     return Inertia::render('dashboard/ForumChat', []);

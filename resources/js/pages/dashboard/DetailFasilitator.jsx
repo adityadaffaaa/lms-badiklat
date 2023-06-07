@@ -56,7 +56,10 @@ export const DetailFasilitator = () => {
           <div className='p-4 flex justify-between items-center'>
             <div className='flex flex-col gap-2 text-neutral-500'>
               <h5 className='text-heading5'>Nama Fasilitator</h5>
-              <p className='text-paragraph4'>12345678910</p>
+              <p className='text-paragraph4'><a className='font-bold'>NIP :</a>  12345678910</p>
+              <p className='text-paragraph4'><a className='font-bold'>NIK :</a>  12345678910</p>
+              <p className='text-paragraph4'><a className='font-bold'>No Rekening :</a>  12345678910 (BNI)</p>
+
               <p className='text-paragraph1'>KSBA</p>
             </div>
             <ButtonGradient onclick={handleOpenEdit} text={"Edit"} padX={"px-4"} padY={"py-2"} fontWeight={"font-bold"} icon={<BorderColorIcon sx={{ fontSize: 16 }} />} />

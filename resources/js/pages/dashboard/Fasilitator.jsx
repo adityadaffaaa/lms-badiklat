@@ -16,11 +16,7 @@ export const Fasilitator = () => {
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
-  // let navigate = useNavigate();
-  // const routeChange = () => {
-  //   let path = "/fasilitator/detail-fasilitator"
-  //   navigate(path)
-  // }
+
   return (
     <section className='mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex md:border-2 md:border-skyBlue10 flex-col  w-full gap-3 h-full  bg-white shadow-defaultShadow rounded-lg'>
       <div className='flex justify-between p-4'>

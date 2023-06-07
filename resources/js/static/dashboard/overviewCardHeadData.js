@@ -1,7 +1,8 @@
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
-import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import AssignmentIcon from "@mui/icons-material/Assignment";
 import GroupsIcon from "@mui/icons-material/Groups";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 
 export const overviewCardHeadData = [
   {
@@ -11,22 +12,22 @@ export const overviewCardHeadData = [
     icon: PeopleAltIcon,
   },
   {
-    title: "Total Modul",
-    count: 300,
-    desc: "Lorem ipsum dolor sit amet",
-    icon: LibraryBooksIcon,
-  },
-  {
-    title: " Total Fasilitator",
+    title: "Total Fasilitator",
     count: 240,
     desc: "Lorem ipsum dolor sit amet",
     icon: HowToRegIcon,
   },
   {
-    title: " Workshop",
+    title: "Total Panitia",
     count: 12,
     desc: "Lorem ipsum dolor sit amet",
     icon: GroupsIcon,
+  },
+  {
+    title: "LEAF",
+    count: 12,
+    desc: "Lorem ipsum dolor sit amet",
+    icon: AssignmentIcon,
   },
 ];
 

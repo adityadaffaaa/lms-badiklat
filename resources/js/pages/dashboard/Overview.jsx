@@ -21,23 +21,27 @@ export const Overview = () => {
         className="flex flex-wrap gap-3
           "
       >
-        {overviewCardHeadData.map((value, index) => role.fasilitator && index === 2 ? null :
-          (
-            <div key={index} className="flex flex-col flex-[1_1_200px] gap-2 md:gap-8 w-full shadow-defaultShadow p-3 rounded-lg border-2 border-skyBlue40">
-              <div
-                className="flex flex-row justify-between
+        {overviewCardHeadData.map((value, index) =>
+          role.fasilitator && index === 2 ? null :
+            (role.fasilitator && index === 3) ||
+              (role.panitia && index === 3) ?
+              null :
+              (
+                <div key={index} className="flex flex-col flex-[1_1_200px] gap-2 md:gap-8 w-full shadow-defaultShadow p-3 rounded-lg border-2 border-skyBlue40">
+                  <div
+                    className="flex flex-row justify-between
                   "
-              >
-                <h5 className="text-heading5 text-neutral-600">{value.title}</h5>
-                <value.icon className="text-skyBlue70" />
-              </div>
-              <div className="flex flex-col ">
-                <h3 className="text-heading3 text-skyBlue70 my-0">{value.count}</h3>
-                {/* <Odometer duration={2000} className="text-heading3 text-skyBlue70" value={value.count} format="(.ddd),dd" animation='count' /> */}
-                <p className="text-paragraph5 text-neutral-400 my-0">{value.desc}</p>
-              </div>
-            </div>
-          )
+                  >
+                    <h5 className="text-heading5 text-neutral-600">{value.title}</h5>
+                    <value.icon className="text-skyBlue70" />
+                  </div>
+                  <div className="flex flex-col ">
+                    <h3 className="text-heading3 text-skyBlue70 my-0">{value.count}</h3>
+                    {/* <Odometer duration={2000} className="text-heading3 text-skyBlue70" value={value.count} format="(.ddd),dd" animation='count' /> */}
+                    <p className="text-paragraph5 text-neutral-400 my-0">{value.desc}</p>
+                  </div>
+                </div>
+              )
         )}
       </section >
       <section className="flex flex-wrap gap-3">

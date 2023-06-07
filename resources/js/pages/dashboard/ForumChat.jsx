@@ -7,7 +7,7 @@ import Avatar from "@mui/material/Avatar";
 import AvatarGroup from "@mui/material/AvatarGroup";
 export const ForumChat = () => {
   return (
-    <section className="mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex flex-col w-full gap-6 h-full rounded-lg ">
+    <section className="mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex flex-col w-full  h-full rounded-lg ">
       <h5 className="text-neutral-600 text-heading5">Data Kelompok</h5>
       <div className="flex flex-wrap gap-5">
         {dataKelompok.map((value, index) => {
@@ -44,6 +44,6 @@ export const ForumChat = () => {
   );
 };
 
-ForumChat.layout = page => <Dashboard children={page} title={"Forum Chat"}/>
+ForumChat.layout = page => <Dashboard children={page} title={"Forum Chat"} />
 
 export default ForumChat;

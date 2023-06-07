@@ -16,11 +16,7 @@ export const Kursus = () => {
           src='user-assets/dot-white.png'
           alt=''
         />
-        {/* <img
-          className='absolute h-[300px] -bottom-48 -right-24 '
-          src='user-assets/dot-white.png'
-          alt=''
-        /> */}
+
         <div className='flex flex-col items-center max-w-[562px] gap-6'>
           <h1 className="text-white text-heading1 text-center leading-10">Lorem ipsum dolor sit amet <a className="text-warm100">consectetur</a> elit vitae!</h1>
           <p className="text-paragraph2 text-white text-center">Lorem ipsum dolor sit amet consectetur. Elit vitae condimentum ut mi arcu cras amet. Nunc facilisis commodo sed vitae vulputate. Habitasse facilisi</p>

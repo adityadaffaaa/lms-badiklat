@@ -23,13 +23,14 @@ Route::get('/forum-chat', [DashboardController::class, 'forumchat']);
 Route::get('/jadwal', [DashboardController::class, 'jadwal']);
 Route::get('/fasilitator', [DashboardController::class, 'fasilitator']);
 Route::get('/peserta/detail-peserta', [DashboardController::class, 'detailpeserta']);
+Route::get('/peserta/list-peserta', [DashboardController::class, 'listpeserta']);
 Route::get('/forum-chat/kelompok', [DashboardController::class, 'kelompok']);
 Route::get('/fasilitator/detail-fasilitator', [DashboardController::class, 'detailfasilitator']);
+Route::get("/panitia", [DashboardController::class, 'panitia']);
 Route::get("/user", [UserController::class, 'beranda']);
 Route::get("/user/diklat", [UserController::class, 'diklat']);
 Route::get("/user/fasilitator", [UserController::class, 'fasilitator']);
 Route::get("/user/tanya-kami", [UserController::class, 'tanyakami']);
-
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [

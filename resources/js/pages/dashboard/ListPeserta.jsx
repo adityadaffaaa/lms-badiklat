@@ -1,22 +1,17 @@
-import React from "react";
-
+import React from 'react'
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LinearProgress from "@mui/material/LinearProgress";
-import Avatar from "@mui/material/Avatar";
-import AvatarGroup from "@mui/material/AvatarGroup";
-import { dataPeserta, dataLeaf } from "../../static/dashboard";
-import { stringAvatar } from "../../settings";
+import { dataPeserta } from "../../static/dashboard";
+
 
 import Dashboard from "@/layouts/dashboard/Dashboard";
 import { Link } from "@inertiajs/react";
-import routes from '@/routes';
-export const Peserta = () => {
-  const { role } = routes[0];
+export const ListPeserta = () => {
   return (
-    <section className={`mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex flex-col w-full h-full ${role.fasilitator ? "md:border-2 md:border-skyBlue10 gap-3 p-4 bg-white shadow-defaultShadow rounded-lg" : "gap-6"}`}>
+    <section className={`mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex flex-col w-full h-full md:border-2 md:border-skyBlue10 gap-3 p-4 bg-white shadow-defaultShadow rounded-lg`}>
       <h5 className='text-heading5 text-neutral-600'>Daftar Peserta</h5>
-      <div className={`flex ${role.fasilitator ? "flex-col w-full gap-3" : "flex-wrap gap-5"} `}>
-        {role.fasilitator ? dataPeserta.map((value, index) => {
+      <div className={`flex flex-col w-full gap-3 `}>
+        {dataPeserta.map((value, index) => {
           return (
             <Link
               key={index}
@@ -64,35 +59,13 @@ export const Peserta = () => {
               </div>
             </Link>
           );
-        }) :
-          dataLeaf.map(({ id, jmlPeserta, tanggalMulai, tanggalSelesai, peserta }, index) =>
-            <Link key={index} href="/peserta/list-peserta" className="p-4 flex flex-col group bg-white shadow-defaultShadow rounded-lg gap-4 flex-[1_1_360px] transition-default hover:bg-skyBlue70 hover:text-white">
-              <h5 className="text-heading5 text-neutral-600 group-hover:text-inherit">Leaf {id}</h5>
-              <div className="flex flex-row text-neutral-500 gap-4 group-hover:text-inherit">
-                <div className="flex flex-col">
-                  <h2 className="text-heading2">{jmlPeserta}</h2>
-                  <p className="text-paragraph5">Jumlah Peserta</p>
-                </div>
-              </div>
-              <div className="flex flex-col ">
-                <p className="text-paragraph3 text-neutral-500 group-hover:text-inherit">Tanggal Pelaksanaan</p>
-                <p className="text-paragraph4 text-neutral-400 leading-5 group-hover:text-inherit">{tanggalMulai} - {tanggalSelesai}</p>
-              </div>
-              <div className="flex flex-col items-start gap-2 ">
-                <p className="text-paragraph3 text-neutral-500 group-hover:text-inherit">Peserta</p>
-                <AvatarGroup max={5}>
-                  {peserta.map((name, index) => (
-                    <Avatar key={index} {...stringAvatar(name)} />
-                  ))}
-                </AvatarGroup>
-              </div>
-            </Link>)
+        })
         }
       </div>
     </section>
-  );
-};
+  )
+}
 
-Peserta.layout = page => <Dashboard children={page} title={"Peserta"} />
+ListPeserta.layout = page => <Dashboard children={page} title={"List Peserta"} />
 
-export default Peserta;
+export default ListPeserta;

@@ -3,14 +3,16 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import HomeIcon from '@mui/icons-material/Home';
-import { ForumChat, Peserta, Jadwal, Overview } from './pages/dashboard';
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import { ForumChat, Peserta, Jadwal, Overview, Panitia } from './pages/dashboard';
 
 const routes = [
   {
     layout: "Dashboard",
     role: {
       fasilitator: 0,
-      panitia: 1
+      panitia: 0,
+      management: 1
     },
     isSignIn: true,
     pages: [
@@ -22,6 +24,12 @@ const routes = [
       },
       {
         element: <p className="text-paragraph5 font-bold text-neutral-400">MENU</p>
+      },
+      {
+        title: 'Panitia',
+        element: <Panitia />,
+        icon: <SupervisorAccountIcon />,
+        path: '/panitia',
       },
       {
         title: 'Peserta',

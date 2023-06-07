@@ -7,3 +7,5 @@ export * from "./Overview";
 export * from "./Peserta";
 export * from "./Fasilitator";
 export * from "./DetailFasilitator";
+export * from "./ListPeserta";
+export * from "./Panitia";
