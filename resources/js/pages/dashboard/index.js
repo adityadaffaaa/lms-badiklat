@@ -9,3 +9,5 @@ export * from "./Fasilitator";
 export * from "./DetailFasilitator";
 export * from "./ListPeserta";
 export * from "./Panitia";
+export * from "./ListFasilitator";
+export * from "./ListPesertaPanitia";

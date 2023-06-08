@@ -34,7 +34,7 @@ export const Fasilitator = () => {
               <th width="10%" className="" align="left">
                 NIP
               </th>
-              <th width="15%" align="center">Bidang</th>
+              <th width="15%" align="center">Satuan Kerja</th>
               <th width="10%" align="center">ST</th>
               <th width="10%" align="center">SKM</th>
               <th width="10%" align="center">SPJ Honor</th>

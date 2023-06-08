@@ -1,5 +1,4 @@
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
-import AssignmentIcon from "@mui/icons-material/Assignment";
 import GroupsIcon from "@mui/icons-material/Groups";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
@@ -27,7 +26,7 @@ export const overviewCardHeadData = [
     title: "LEAF",
     count: 12,
     desc: "Lorem ipsum dolor sit amet",
-    icon: AssignmentIcon,
+    icon: LibraryBooksIcon,
   },
 ];
 

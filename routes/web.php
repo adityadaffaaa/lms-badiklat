@@ -27,6 +27,8 @@ Route::get('/peserta/list-peserta', [DashboardController::class, 'listpeserta'])
 Route::get('/forum-chat/kelompok', [DashboardController::class, 'kelompok']);
 Route::get('/fasilitator/detail-fasilitator', [DashboardController::class, 'detailfasilitator']);
 Route::get("/panitia", [DashboardController::class, 'panitia']);
+Route::get("/panitia/list-fasilitator", [DashboardController::class, 'listfasilitator']);
+Route::get("/panitia/list-fasilitator/list-peserta", [DashboardController::class, 'listpesertapanitia']);
 Route::get("/user", [UserController::class, 'beranda']);
 Route::get("/user/diklat", [UserController::class, 'diklat']);
 Route::get("/user/fasilitator", [UserController::class, 'fasilitator']);
