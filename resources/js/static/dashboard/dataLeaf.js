@@ -12,6 +12,10 @@ export const dataLeaf = [
       "Haijal Lentera",
       "Sandy Sandoro",
     ],
+    status: {
+      berlangsung: 1,
+      selesai: 0,
+    },
   },
   {
     id: 2,
@@ -26,6 +30,10 @@ export const dataLeaf = [
       "Haijal Lentera",
       "Sandy Sandoro",
     ],
+    status: {
+      berlangsung: 0,
+      selesai: 1,
+    },
   },
   {
     id: 3,
@@ -40,6 +48,10 @@ export const dataLeaf = [
       "Haijal Lentera",
       "Sandy Sandoro",
     ],
+    status: {
+      berlangsung: 0,
+      selesai: 1,
+    },
   },
   {
     id: 4,
@@ -54,6 +66,10 @@ export const dataLeaf = [
       "Haijal Lentera",
       "Sandy Sandoro",
     ],
+    status: {
+      berlangsung: 0,
+      selesai: 1,
+    },
   },
   {
     id: 5,
@@ -68,6 +84,10 @@ export const dataLeaf = [
       "Haijal Lentera",
       "Sandy Sandoro",
     ],
+    status: {
+      berlangsung: 1,
+      selesai: 0,
+    },
   },
   {
     id: 6,
@@ -82,6 +102,10 @@ export const dataLeaf = [
       "Haijal Lentera",
       "Sandy Sandoro",
     ],
+    status: {
+      berlangsung: 0,
+      selesai: 1,
+    },
   },
   {
     id: 7,
@@ -96,6 +120,10 @@ export const dataLeaf = [
       "Haijal Lentera",
       "Sandy Sandoro",
     ],
+    status: {
+      berlangsung: 1,
+      selesai: 0,
+    },
   },
   {
     id: 8,
@@ -109,6 +137,10 @@ export const dataLeaf = [
       "Haijal Lentera",
       "Sandy Sandoro",
     ],
+    status: {
+      berlangsung: 1,
+      selesai: 0,
+    },
   },
   {
     id: 9,
@@ -122,6 +154,61 @@ export const dataLeaf = [
       "Haijal Lentera",
       "Sandy Sandoro",
     ],
+    status: {
+      berlangsung: 0,
+      selesai: 1,
+    },
+  },
+  {
+    id: 10,
+    jmlPeserta: 10,
+    tanggalMulai: "10 Mei 2023",
+    peserta: [
+      "Daffa Fawwaz",
+      "Ria Kusmara",
+      "Qipo Nur",
+      "Rizma Ucup",
+      "Haijal Lentera",
+      "Sandy Sandoro",
+    ],
+    status: {
+      berlangsung: 1,
+      selesai: 0,
+    },
+  },
+  {
+    id: 11,
+    jmlPeserta: 10,
+    tanggalMulai: "10 Mei 2023",
+    peserta: [
+      "Daffa Fawwaz",
+      "Ria Kusmara",
+      "Qipo Nur",
+      "Rizma Ucup",
+      "Haijal Lentera",
+      "Sandy Sandoro",
+    ],
+    status: {
+      berlangsung: 0,
+      selesai: 1,
+    },
+  },
+  {
+    id: 12,
+    jmlPeserta: 10,
+    tanggalMulai: "10 Mei 2023",
+    peserta: [
+      "Daffa Fawwaz",
+      "Ria Kusmara",
+      "Qipo Nur",
+      "Rizma Ucup",
+      "Haijal Lentera",
+      "Sandy Sandoro",
+    ],
+    status: {
+      berlangsung: 1,
+      selesai: 0,
+    },
   },
 ];
 

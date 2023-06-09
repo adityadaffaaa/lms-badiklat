@@ -10,9 +10,9 @@ const routes = [
   {
     layout: "Dashboard",
     role: {
-      fasilitator: 0,
+      fasilitator: 1,
       panitia: 0,
-      management: 1
+      management: 0
     },
     isSignIn: true,
     pages: [

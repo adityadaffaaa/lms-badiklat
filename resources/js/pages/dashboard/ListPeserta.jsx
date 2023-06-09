@@ -2,8 +2,6 @@ import React from 'react'
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LinearProgress from "@mui/material/LinearProgress";
 import { dataPeserta } from "../../static/dashboard";
-
-
 import Dashboard from "@/layouts/dashboard/Dashboard";
 import { Link } from "@inertiajs/react";
 export const ListPeserta = () => {
@@ -11,7 +9,7 @@ export const ListPeserta = () => {
     <section className={`mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex flex-col w-full h-full md:border-2 md:border-skyBlue10 gap-3 p-4 bg-white shadow-defaultShadow rounded-lg`}>
       <h5 className='text-heading5 text-neutral-600'>Daftar Peserta</h5>
       <div className={`flex flex-col w-full gap-3 `}>
-        {dataPeserta.map((value, index) => {
+        {dataPeserta.map(({ name, nip, totalJp, status, point }, index) => {
           return (
             <Link
               key={index}
@@ -27,23 +25,23 @@ export const ListPeserta = () => {
                   />
                   <div className='flex flex-col'>
                     <h5 className='text-heading5 text-neutral-600'>
-                      {value.name}
+                      {name}
                     </h5>
                     <p
                       className='text-paragraph2 text-neutral-400
                   '
                     >
-                      {value.nip}
+                      {nip}
                     </p>
                   </div>
                 </div>
                 <p className='text-paragraph2 text-neutral-600'>
-                  {value.totalJp}
+                  {totalJp}
                 </p>
                 <span
-                  className={`py-1 px-2 rounded-full text-neutral-50 ${value.status === "Online" ? "bg-[#00C773]" : "bg-[#D00000]"}`}
+                  className={`py-1 px-2 rounded-full text-neutral-50 ${status === "Online" ? "bg-[#00C773]" : "bg-[#D00000]"}`}
                 >
-                  {value.status}
+                  {status}
                 </span>
               </div>
               <div className='point-keaktifan flex flex-col w-full gap-2 md:w-1/2 '>
@@ -52,10 +50,10 @@ export const ListPeserta = () => {
                     Poin Keaktifan
                   </p>
                   <p className='text-paragraph1 text-skyBlue70 my-0'>
-                    {value.point}%
+                    {point}%
                   </p>
                 </div>
-                <LinearProgress variant='determinate' value={value.point} />
+                <LinearProgress variant='determinate' value={point} />
               </div>
             </Link>
           );
