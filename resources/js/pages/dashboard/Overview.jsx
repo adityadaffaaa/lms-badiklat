@@ -225,7 +225,9 @@ export const Overview = () => {
                 </div>
               </>
               :
-              <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth"></FullCalendar>
+              <div className='-z-10'>
+                <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth"></FullCalendar>
+              </div>
           }
         </div>
         <div className="flex flex-col gap-3 flex-[1_1_200px] md:flex-[1_1_500px]  shadow-defaultShadow p-3 rounded-lg border-2 border-warm90">

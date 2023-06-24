@@ -59,29 +59,29 @@ export const Jadwal = () => {
         <DetailJadwalDialog dataPeserta={dataPeserta} handleClose={handleCloseDetailJadwal} open={openDetailJadwal} />
       </div>
       <div className="list-jadwal flex flex-col gap-3 w-full">
-        {dataJadwal.map((value, index) => {
+        {dataJadwal.map(({ fasilitator, peserta, tanggal, durasi, mulai, selesai }, index) => {
           return (
-            <a key={index} className=" flex flex-row p-4 justify-between w-full bg-skyBlue50 rounded-lg items-center">
+            <a key={index} className=" flex  flex-wrap p-4 justify-between w-full bg-skyBlue50 rounded-lg items-center">
               <div className="flex flex-col gap-6 flex-1">
                 <h4 className="text-white text-heading4">You have a meeting Today</h4>
                 <p className="text-white text-paragraph2">
                   Topic : <a className="text-paragraph1">Lorem ipsum dolor sit amet consectetur</a>{' '}
                 </p>
                 <p className="text-white text-paragraph2">
-                  With <a className="text-paragraph1">{value.fasilitator}</a>{' '}
+                  With <a className="text-paragraph1">{fasilitator}</a>{' '}
                 </p>
               </div>
               <div className="flex-1 flex justify-center">
                 <AvatarGroup max={5}>
-                  {value.peserta.map((name, index) => (
+                  {peserta.map((name, index) => (
                     <Avatar key={index} {...stringAvatar(name)} />
                   ))}
                 </AvatarGroup>
               </div>
               <div className="flex flex-col items-end flex-1 gap-6">
-                <h5 className="text-heading5 text-white">{value.tanggal}</h5>
+                <h5 className="text-heading5 text-white">{tanggal}</h5>
                 <div className="flex flex-row items-center text-white gap-1">
-                  <span className="py-1 px-3 rounded-lg  bg-warm90">{value.durasi} Minutes</span>
+                  <span className="py-1 px-3 rounded-lg  bg-warm90">{durasi} Minutes</span>
                   <span className=" bg-[#009E5C] rounded-lg">
                     <IconButton onClick={handleOpenEditJadwal}>
                       <BorderColorIcon className="text-white" sx={{ fontSize: 16 }} />
@@ -99,7 +99,7 @@ export const Jadwal = () => {
                   </span>
                 </div>
                 <p className="text-white text-paragraph2">
-                  {value.mulai} PM <a className="text-paragraph1">to</a> {value.selesai} PM
+                  {mulai} PM <a className="text-paragraph1">to</a> {selesai} PM
                 </p>
               </div>
             </a>

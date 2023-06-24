@@ -40,6 +40,13 @@
   @apply py-[10px] px-6 ring-2 ring-warm100  hover:ring-0 rounded-lg text-warm70 flex justify-center items-center gap-2 text-paragraph5 hover:bg-warm100 hover:text-neutral-100 hover:shadow-defaultShadow transition-default;
 }
 
+.wrap-menu-nav .MuiButtonBase-root:nth-child(3) {
+  @apply lg:hidden
+}
+.header-sidenav .MuiButtonBase-root {
+  @apply lg:hidden
+}
+
 .transition-default {
   @apply ease-in-out transition-all duration-300;
 }
@@ -83,7 +90,7 @@
 }
 
 .forum-chat-chart canvas {
-  @apply w-full
+  @apply w-full;
 }
 /* user */
 .swiper-kursus-terbaru .swiper-scrollbar-horizontal {

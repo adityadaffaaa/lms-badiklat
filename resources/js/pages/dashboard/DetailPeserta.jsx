@@ -1,5 +1,9 @@
-import React from "react";
-import { BarChart, LineChart } from "../../components/dashboard";
+import React, { useState } from "react";
+import {
+  BarChart,
+  LineChart,
+  PenilaianPeserta
+} from "../../components/dashboard";
 import { aktivitasPeserta } from "../../static/dashboard";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
@@ -9,12 +13,24 @@ import LinearProgress from "@mui/material/LinearProgress";
 import Dashboard from "@/layouts/dashboard/Dashboard";
 
 export const DetailPeserta = () => {
+  const [open, setOpen] = useState(false);
+  const [weeklyEval, setWeeklyEval] = useState(true);
+  const handleOpenWeeklyEval = () => {
+    setOpen(true);
+    setWeeklyEval(true);
+  }
+  const handleOpenFinalEval = () => {
+    setOpen(true);
+    setWeeklyEval(false);
+  }
+  const handleClose = () => setOpen(false);
   return (
     <section className='mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex flex-col w-full gap-5 h-full rounded-lg '>
+      <PenilaianPeserta handleClose={handleClose} open={open} namaPeserta={"Nama Peserta"} isWeeklyEval={weeklyEval} />
       <div className='w-full bg-white border-2 border-skyBlue10 shadow-defaultShadow rounded-lg py-6 pl-8 pr-[52px] flex flex-wrap items-center justify-between'>
         <div className='flex flex-row items-center gap-4'>
           <AccountCircleIcon
-            sx={{ fontSize: 158 }}
+            sx={{ fontSize: 158 }} x
             className='text-skyBlue70'
           />
           <div className='flex flex-col text-neutral-600 gap-1'>
@@ -95,10 +111,11 @@ export const DetailPeserta = () => {
           <h5 className='text-heading5 text-neutral-600'>
             Nilai Formatif & Sumatif Pekanan
           </h5>
-          <button className='btn-gradient-default py-2 px-6 rounded-lg text-white flex items-center gap-2 text-paragraph1'>
+          <button onClick={handleOpenWeeklyEval} className='btn-gradient-default py-2 px-6 rounded-lg text-white flex items-center gap-2 text-paragraph1'>
             Nilai Peserta
             <BorderColorIcon sx={{ fontSize: 18 }} />
           </button>
+
         </div>
         <div className='flex flex-col gap-6'>
           <div className='flex flex-row items-center '>
@@ -228,7 +245,7 @@ export const DetailPeserta = () => {
             <h5 className='text-heading5 text-neutral-600'>
               Nilai Formatif Akhir
             </h5>
-            <button className='btn-gradient-default py-2 px-6 rounded-lg text-white flex items-center gap-2 text-paragraph1'>
+            <button onClick={handleOpenFinalEval} className='btn-gradient-default py-2 px-6 rounded-lg text-white flex items-center gap-2 text-paragraph1'>
               Nilai Peserta
               <BorderColorIcon sx={{ fontSize: 18 }} />
             </button>

@@ -8,3 +8,4 @@ export * from "./DetailJadwalDialog";
 export * from "./ThreadsDialog";
 export * from "./FasilitatorDialog";
 export * from "./InputSuratDialog";
+export * from "./PenilaianPeserta";

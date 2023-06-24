@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
-// import { useLocation } from 'react-router-dom';
-const NavBar = ({ title, nama }) => {
-  // const { pathname } = useLocation();
-  // const [page] = pathname.split('/').filter((el) => el !== '');
+
+const NavBar = ({ title, nama, toggle }) => {
   return (
     <header className="fixed flex flex-col w-[calc(100%-48px)] md:w-[calc(100%-24px)] lg:w-[calc(100%-308px)] mt-3 shadow-defaultShadow p-3 rounded-lg gap-2  bg-[rgba(255,255,255,0.8)] backdrop-blur-md z-50 top-0 md:flex-row md:justify-between md:items-center md:border-2 md:border-skyBlue10">
       <div className='flex flex-col items-start'>
@@ -20,7 +18,7 @@ const NavBar = ({ title, nama }) => {
           <p className='text-paragraph4 text-neutral-500'>{nama}</p>
         }
       </div>
-      <div className="flex flex-row justify-between md:gap-2 items-center">
+      <div className="wrap-menu-nav flex flex-row justify-between md:gap-2 items-center">
         <div className="flex flex-row flex-1 border-2 rounded-lg overflow-hidden items-center border-neutral-500 py-1 px-6">
           <input className="outline-none border-none w-full text-paragraph4 bg-transparent placeholder:text-neutral-400" placeholder="Cari sesuatu..." type="text" name="" id="" />
           <SearchIcon className="text-neutral-500" />
@@ -30,8 +28,8 @@ const NavBar = ({ title, nama }) => {
             <NotificationsIcon className="text-skyBlue70" />
           </Badge>
         </IconButton>
-        <IconButton>
-          <MenuIcon className="text-neutral-500" />
+        <IconButton onClick={toggle}>
+          <MenuIcon className="text-neutral-500 " />
         </IconButton>
         <div className="flex flex-row items-center">
           <IconButton>

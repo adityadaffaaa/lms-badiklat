@@ -1,7 +1,14 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 
-import { dataPeserta, dataTopik, dataThreads } from "../../static/dashboard";
-import { ButtonGradient, ThreadsDialog } from "../../components/dashboard";
+import {
+  dataPeserta,
+  dataTopik,
+  dataThreads
+} from "../../static/dashboard";
+import {
+  ButtonGradient,
+  ThreadsDialog
+} from "../../components/dashboard";
 import Dashboard from "@/layouts/dashboard/Dashboard";
 import { stringAvatar } from "../../settings";
 import Avatar from "@mui/material/Avatar";
@@ -78,7 +85,7 @@ export const Kelompok = () => {
         </div>
         <ThreadsDialog handleClose={handleClose} open={open} data={dataThreads} />
         <div className='flex flex-col w-full gap-3'>
-          {dataTopik.map((value, index) => {
+          {dataTopik.map(({ name, nip, createdAt, thumbsUp, threads, role }, index) => {
             return (
               <div
                 key={index}
@@ -86,18 +93,18 @@ export const Kelompok = () => {
               >
                 <div className='flex flex-row justify-between'>
                   <div className='flex flex-row gap-3'>
-                    <Avatar {...stringAvatar(value.name)} />
+                    <Avatar {...stringAvatar(name)} />
                     <div className='flex flex-col '>
                       <p className='text-paragraph3 text-neutral-500'>
-                        {value.name}
+                        {name}
                       </p>
                       <p className='text-paragraph5 text-neutral-400'>
-                        {value.nip}
+                        {nip}
                       </p>
                     </div>
                   </div>
                   <p className='text-paragraph5 text-neutral-400'>
-                    {value.createdAt} menit yang lalu
+                    {createdAt} menit yang lalu
                   </p>
                 </div>
                 <p className='text-paragraph2 text-neutral-500 max-w-2xl'>
@@ -123,7 +130,7 @@ export const Kelompok = () => {
                         }
                       />
                       <p className='text-paragraph4 text-neutral-600'>
-                        {value.thumbsUp}
+                        {thumbsUp}
                       </p>
                     </div>
                     <Checkbox
@@ -139,12 +146,12 @@ export const Kelompok = () => {
                       </IconButton>
 
                       <p className='text-paragraph4 text-neutral-600'>
-                        {value.threads}
+                        {threads}
                       </p>
                     </div>
                   </div>
                   <div
-                    className={`items-center gap-2" ${value.role === "peserta" ? "hidden" : "flex"}`}
+                    className={`items-center gap-2" ${role === "peserta" ? "hidden" : "flex"}`}
                   >
                     <span className=' bg-skyBlue70 rounded-lg'>
                       <IconButton>
@@ -171,27 +178,27 @@ export const Kelompok = () => {
         <div className='flex flex-col p-4 bg-white border-2 h-[calc(100%-112px)] w-[300px] border-skyBlue10 rounded-lg shadow-defaultShadow gap-5 fixed z-50'>
           <p className='text-neutral-400 text-paragraph1'>Peserta Kelompok 1</p>
           <div className='flex flex-col w-full overflow-auto'>
-            {dataPeserta.map((value, index) => {
+            {dataPeserta.map(({ name, nip, threads, topik }, index) => {
               return (
                 <div
                   key={index}
                   className='py-2 pr-1 border-b-2 border-neutral-300 flex flex-row items-center justify-between'
                 >
                   <div className='flex flex-row gap-3'>
-                    <Avatar {...stringAvatar(value.name)} />
+                    <Avatar {...stringAvatar(name)} />
                     <div className='flex flex-col'>
                       <p className='text-paragraph3 text-neutral-500'>
-                        {value.name}
+                        {name}
                       </p>
                       <p className='text-paragraph5 text-neutral-400'>
-                        {value.nip}
+                        {nip}
                       </p>
                     </div>
                   </div>
                   <div className='flex flex-col'>
                     <div className='flex flex-col'>
                       <p className='text-paragraph3 text-neutral-500'>
-                        {value.threads}
+                        {threads}
                       </p>
                       <p className='text-paragraph5 text-neutral-500'>
                         Threads
@@ -199,7 +206,7 @@ export const Kelompok = () => {
                     </div>
                     <div className='flex flex-col'>
                       <p className='text-paragraph3 text-neutral-500'>
-                        {value.topik}
+                        {topik}
                       </p>
                       <p className='text-paragraph5 text-neutral-500'>Topik</p>
                     </div>

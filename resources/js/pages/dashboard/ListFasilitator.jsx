@@ -19,7 +19,7 @@ export const ListFasilitator = () => {
                 <p className="text-paragraph5">Jumlah Peserta</p>
               </div>
             </div>
-            <div className="flex flex-col ">
+            <div className="flex flex-col">
               <p className="text-paragraph3 text-neutral-500 group-hover:text-inherit">Tanggal Pelaksanaan</p>
               <p className="text-paragraph4 text-neutral-400 leading-5 group-hover:text-inherit">{tanggalMulai} - {tanggalSelesai}</p>
             </div>
