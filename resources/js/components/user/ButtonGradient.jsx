@@ -10,6 +10,6 @@ export const ButtonGradient = ({ text, onclick, padX, padY, icon, fontWeight }) 
       {text} {icon}
     </button>
   );
-};
+}; 
 
 export default ButtonGradient;

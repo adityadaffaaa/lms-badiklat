@@ -14,6 +14,10 @@ class DashboardController extends Controller
   {
     return Inertia::render('dashboard/Overview', []);
   }
+  public function signin()
+  {
+    return Inertia::render('auth/SignIn', []);
+  }
   public function peserta()
   {
     return Inertia::render('dashboard/Peserta', []);

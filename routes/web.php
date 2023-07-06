@@ -18,6 +18,7 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', [DashboardController::class, 'index']);
+Route::get('/sign-in', [DashboardController::class, 'signin']);
 Route::get('/peserta', [DashboardController::class, 'peserta']);
 Route::get('/forum-chat', [DashboardController::class, 'forumchat']);
 Route::get('/jadwal', [DashboardController::class, 'jadwal']);
