@@ -13,6 +13,6 @@ class Role extends Model
     protected $guarded = ["id"];
     public function fasilitator()
     {
-        return $this->belongsTo(Fasilitator::class);
+        return $this->belongsTo(Fasilitator::class, 'id', 'role_id');
     }
 }

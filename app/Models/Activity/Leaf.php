@@ -15,7 +15,7 @@ class Leaf extends Model
 
     public function fasilitator()
     {
-        return $this->belongsTo(Fasilitator::class, 'id', 'fasilitator_id');
+        return $this->belongsTo(Fasilitator::class, 'fasilitator_id', 'id');
     }
     public function leaf_pesertas()
     {

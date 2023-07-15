@@ -3,6 +3,7 @@
 namespace App\Models\Fasilitator;
 
 use App\Models\Activity\Leaf;
+use App\Models\Role\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,10 +25,15 @@ class Fasilitator extends Model
 
     public function role()
     {
-        return $this->belongsTo(Role::class);
+        return $this->belongsTo(Role::class, 'role_id', 'id');
     }
-    public function leaf()
+    public function leafs()
     {
         return $this->hasMany(Leaf::class, 'fasilitator_id', 'id');
+    }
+
+    public function panitia()
+    {
+        return $this->belongsTo(Panitia::class, 'id', 'panitia_id');
     }
 }

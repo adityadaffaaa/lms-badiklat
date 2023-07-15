@@ -27,7 +27,7 @@ class LeafFactory extends Factory
             'max_peserta' => mt_rand(1, 11),
             'mulai' => $start,
             'selesai' => fake()->dateTimeBetween($start->format('Y-m-d') . '+1 month', $start->format('Y-m-d') . '+1 month'),
-            'fasilitator_id' => mt_rand(1, 3)
+            'fasilitator_id' => mt_rand(1, 2)
         ];
     }
 }
