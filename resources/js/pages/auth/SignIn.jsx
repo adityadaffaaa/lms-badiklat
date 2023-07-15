@@ -14,7 +14,11 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-export const SignIn = () => {
+import { Link } from '@inertiajs/react';
+
+export const SignIn = ({ manajemen }) => {
+
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -24,8 +28,8 @@ export const SignIn = () => {
   };
 
   return (
-    <main className='h-screen w-full overflow-x-hidden flex flex-wrap'>
-      <section className='bg-gradient-to-bl from-skyBlue90 to-skyBlue20 flex justify-center items-center flex-[1_1_400px] h-full relative p-6'>
+    <main className='h-screen w-full overflow-x-hidden flex flex-wrap-reverse lg:flex-wrap'>
+      <section className='bg-gradient-to-bl from-skyBlue90 to-skyBlue20 flex justify-center items-center flex-[2_1_400px] h-full relative p-6'>
         <div className='absolute bottom-0 left-0 flex flex-col items-center gap-10'>
           <img
             className='relative h-[80px]'
@@ -53,15 +57,20 @@ export const SignIn = () => {
         <article className='text-white'>
           <h1 className='text-heading1'>Learning From Other</h1>
           <h4 className='text-heading4 font-normal'>Sign in and start managing your participants !</h4>
+          {/* <ul>
+            {
+              manajemen.map(({ Nama, NIK }) => <li>Nama: {Nama} - {NIK}</li>)
+            }
+          </ul> */}
         </article>
       </section>
-      <section className='flex-[1_1_100px] flex justify-center items-center flex-col p-6 gap-6'>
+      <section className='flex-[1_1_400px] flex justify-center items-center flex-col p-6 gap-6'>
         <img src={logoBpk} alt="" className='w-[140px]' />
-        <div className='flex flex-col w-full'>
+        <div className='flex flex-col items-center w-full'>
           <h4 className='text-neutral-600 text-heading4 font-extrabold'>Hello Again!</h4>
           <h5 className='text-neutral-600 text-heading5'>Welcome Back</h5>
         </div>
-        <div className='flex flex-col w-full gap-6'>
+        <div className='flex flex-col w-full max-w-[500px] gap-6'>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <EmailIcon sx={{ mr: 1, my: 0.5 }} className='text-skyBlue70' />
             <TextField id="input-with-sx" label="Email Address" variant="outlined" fullWidth type='email' />
@@ -91,7 +100,9 @@ export const SignIn = () => {
               />
             </FormControl>
           </Box>
-          <ButtonGradient text={"Login"} padY={'py-4'} fontWeight={'font-bold'}  />
+          <Link href="/" className='w-full'>
+            <ButtonGradient text={"Login"} padY={'py-4'} fontWeight={'font-bold'} fullWidth />
+          </Link>
         </div>
       </section>
     </main>

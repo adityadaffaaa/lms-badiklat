@@ -23,7 +23,7 @@ import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 // import Odometer from 'react-odometerjs';
-export const Overview = () => {
+export const Overview = ({ listpeserta }) => {
   const { role } = routes[0]
   return (
     <div className="mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex flex-col w-full gap-3">
@@ -248,40 +248,66 @@ export const Overview = () => {
               </tr>
             </thead>
             <tbody className="text-paragraph2 text-neutral-600">
-              {role.management ? dataPanitia.map(({ nama, status }, index) =>
-                <tr key={index} className="border-b-2 ">
-                  <td className=" py-3" align="left">
-                    {index + 1}
-                  </td>
-                  <td className="pl-1" align="left">
-                    {nama}
-                  </td>
-                  <td align="center">
-                    <span
-                      className={`py-1 px-2 rounded-full text-neutral-50 ${status.online ? "bg-[#00C773]" : "bg-[#D00000]"}`}
-                    >{status.online ? "Online" : "Offline"}</span>
-                  </td>
-                </tr>)
-                : dataPeserta.map((value, index) =>
+              {role.management ?
+
+                dataPanitia.map(({ nama, status }, index) =>
                   <tr key={index} className="border-b-2 ">
                     <td className=" py-3" align="left">
-                      {value.id}
+                      {index + 1}
                     </td>
                     <td className="pl-1" align="left">
-                      {value.name}
+                      {nama}
                     </td>
-                    <td align="center">{value.totalJp}</td>
                     <td align="center">
                       <span
-                        className={`py-1 px-2 rounded-full text-neutral-50 ${value.status === "Online" ? "bg-[#00C773]" : "bg-[#D00000]"}`}
-                      >{value.status}</span>
+                        className={`py-1 px-2 rounded-full text-neutral-50 ${status.online ? "bg-[#00C773]" : "bg-[#D00000]"}`}
+                      >{status.online ? "Online" : "Offline"}</span>
+                    </td>
+                  </tr>)
+                :
+                listpeserta.map(({ firstname, status, totalJp }, index) => {
+                  status = {
+                    online: 1,
+                    offline: 0
+                  }
+                  totalJp = 32
+                  return <tr key={index} className="border-b-2 ">
+                    <td className=" py-3" align="left">
+                      {index + 1}
+                    </td>
+                    <td className="pl-1" align="left">
+                      {firstname}
+                    </td>
+                    <td align="center">{totalJp}</td>
+                    <td align="center">
+                      <span
+                        className={`py-1 px-2 rounded-full text-neutral-50 ${status.online ? "bg-[#00C773]" : "bg-[#D00000]"}`}
+                      >{status.online ? "Online" : "Offline"}</span>
                     </td>
                   </tr>
-                )}
+                }
+                )
+              //   dataPeserta.map((value, index) =>
+              //     <tr key={index} className="border-b-2 ">
+              //       <td className=" py-3" align="left">
+              //         {value.id}
+              //       </td>
+              //       <td className="pl-1" align="left">
+              //         {value.name}
+              //       </td>
+              //       <td align="center">{value.totalJp}</td>
+              //       <td align="center">
+              //         <span
+              //           className={`py-1 px-2 rounded-full text-neutral-50 ${value.status === "Online" ? "bg-[#00C773]" : "bg-[#D00000]"}`}
+              //         >{value.status}</span>
+              //       </td>
+              //     </tr>
+              //   )
+              }
             </tbody>
-          </table>
-        </div>
-      </section>
+        </table>
+    </div>
+      </section >
     </div >
   );
 };

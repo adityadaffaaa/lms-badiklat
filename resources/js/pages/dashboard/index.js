@@ -2,7 +2,7 @@ export * from "./DetailKalender";
 export * from "./DetailPeserta";
 export * from "./ForumChat";
 export * from "./Jadwal";
-export * from "./Kelompok";
+export * from "./Leaf";
 export * from "./Overview";
 export * from "./Peserta";
 export * from "./Fasilitator";

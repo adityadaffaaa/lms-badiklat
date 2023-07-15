@@ -12,7 +12,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Dashboard from '@/layouts/dashboard/Dashboard';
 import { Link } from '@inertiajs/react';
 
-export const Fasilitator = () => {
+export const Fasilitator = ({ fasilitator }) => {
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -32,7 +32,7 @@ export const Fasilitator = () => {
                 Nama
               </th>
               <th width="10%" className="" align="left">
-                NIP
+                NIK
               </th>
               <th width="15%" align="center">Satuan Kerja</th>
               <th width="10%" align="center">ST</th>
@@ -42,7 +42,53 @@ export const Fasilitator = () => {
             </tr>
           </thead>
           <tbody className="text-paragraph2 text-neutral-600">
-            {dataFasilitator.map(({ nama, nip, bidang, st, skm, spj }, index) => {
+            {fasilitator.map(({ Nama, NIK, bidang, st, skm, spj }, index) => {
+              bidang = "KSBA";
+              st = 1
+              skm = 0
+              spj = 1
+              const oddIndex = index % 2 === 1;
+              return (
+                <tr key={index} className={`${oddIndex ? "bg-neutral-100" : ""} `}>
+                  <td className=" py-3 pl-4" align="left">
+                    <div className='flex items-center gap-3 text-neutral-500'>
+                      <AccountCircleIcon className='text-skyBlue70' sx={{ fontSize: 36 }} />
+                      <h5 className='text-heading5 '>
+                        {Nama}
+                      </h5>
+                    </div>
+                  </td>
+                  <td className="" align="left">
+                    {NIK}
+                  </td>
+                  <td align="center">{bidang}</td>
+                  <td align="center">
+                    <span
+                      className={`py-1 px-2 rounded-full text-neutral-50 ${st ? "bg-[#00C773]" : "bg-[#D00000]"}`}
+                    >{`${st ? "Sudah Ada" : "Belum Ada"}`}</span>
+                  </td>
+                  <td align="center">
+                    <span
+                      className={`py-1 px-2 rounded-full text-neutral-50 ${skm ? "bg-[#00C773]" : "bg-[#D00000]"}`}
+                    >{`${skm ? "Sudah Ada" : "Belum Ada"}`}</span>
+                  </td>
+                  <td align="center">
+                    <span
+                      className={`py-1 px-2 rounded-full text-neutral-50 ${spj ? "bg-[#00C773]" : "bg-[#D00000]"}`}
+                    >{`${spj ? "Sudah Ada" : "Belum Ada"}`}</span>
+                  </td>
+                  <td align='center' className=''>
+                    <Link href={`fasilitator/detail-fasilitator/${NIK}`}>
+                      <ButtonGradient text={"Detail"} padX={"px-4"} padY={"py-1"} />
+                    </Link>
+                    <IconButton >
+                      <DeleteForeverIcon className="text-[#D00000]" sx={{ fontSize: 24 }} />
+                    </IconButton>
+                  </td>
+                </tr>
+              )
+            })}
+            {/* {dataFasilitator.map(({ nama, nip, bidang, st, skm, spj }, index) => {
               const oddIndex = index % 2 === 1;
               return (
                 <tr key={index} className={`${oddIndex ? "bg-neutral-100" : ""} `}>
@@ -83,7 +129,7 @@ export const Fasilitator = () => {
                   </td>
                 </tr>
               )
-            })}
+            })} */}
           </tbody>
         </table>
       </div>

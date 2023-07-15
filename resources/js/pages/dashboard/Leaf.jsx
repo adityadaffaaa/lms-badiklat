@@ -32,7 +32,7 @@ const labelReact = { inputProps: { "aria-label": "React" } };
 
 
 
-export const Kelompok = () => {
+export const Leaf = () => {
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -176,7 +176,7 @@ export const Kelompok = () => {
       </section >
       <section className='w-[300px] hidden lg:block relative'>
         <div className='flex flex-col p-4 bg-white border-2 h-[calc(100%-112px)] w-[300px] border-skyBlue10 rounded-lg shadow-defaultShadow gap-5 fixed z-50'>
-          <p className='text-neutral-400 text-paragraph1'>Peserta Kelompok 1</p>
+          <p className='text-neutral-400 text-paragraph1'>Peserta Leaf 1</p>
           <div className='flex flex-col w-full overflow-auto'>
             {dataPeserta.map(({ name, nip, threads, topik }, index) => {
               return (
@@ -221,6 +221,6 @@ export const Kelompok = () => {
   );
 };
 
-Kelompok.layout = page => <Dashboard children={page} title={"Kelompok"} />
+Leaf.layout = page => <Dashboard children={page} title={"Leaf"} />
 
-export default Kelompok;
+export default Leaf;

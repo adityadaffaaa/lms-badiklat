@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
-import { Link } from '@inertiajs/react'
+import { Link, usePage } from '@inertiajs/react'
 import routes from '../../routes';
 import LogoutIcon from '@mui/icons-material/Logout';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 
 const SideNavBar = ({ open, handleClose }) => {
-  const { pages, role } = routes[0];
-  const [active, setActive] = useState(null);
+  const { pages, role } = routes[0]
+  const { url } = usePage()
+  const [active, setActive] = useState(null)
   const handleChange = (index) => {
     if (active === index) {
       setActive(null)
     }
     setActive(index)
   }
+
+  const urlNotRoot = url !== "/"
 
   return (
     <aside className={`fixed z-[60] lg:block w-full p-3 lg:z-0 lg:relative h-screen lg:w-[290px] lg:py-3 lg:pl-3 ${open ? "block" : "hidden"}`}>
@@ -37,16 +40,24 @@ const SideNavBar = ({ open, handleClose }) => {
                 null : index > 2 && role.management ? null :
                   index === 1 ?
                     element : (
-                      <Link key={index} href={path}>
+                      <Link key={index} href={path} >
                         <button onClick={() => handleChange(index)} className={`${active === index ? "btn-gradient-nav-active" : "btn-gradient-nav"}  w-full`}>
                           {icon}
                           {title}
                         </button>
+                        {/* <button onClick={() => handleChange(index)} className={`${url.startsWith(path) && active === 0
+                          ? "btn-gradient-nav-active"
+                          : url.startsWith(path) && url === path
+                            ? "btn-gradient-nav-active"
+                            : "btn-gradient-nav"}  w-full`}>
+                          {icon}
+                          {title}
+                        </button> */}
                       </Link>
                     )
             )}
             <p className="text-paragraph5 font-bold text-neutral-400">LOG OUT</p>
-            <Link className=" btn-gradient-logout" href="#">
+            <Link className=" btn-gradient-logout" href="/sign-in">
               <LogoutIcon />
               Log Out
             </Link>
@@ -54,7 +65,7 @@ const SideNavBar = ({ open, handleClose }) => {
         </div>
         <p className="text-paragraph5 text-neutral-400">©2023 Dashboard LEAF</p>
       </nav>
-    </aside>
+    </aside >
   );
 };
 

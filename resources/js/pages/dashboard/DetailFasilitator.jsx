@@ -24,7 +24,8 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 
 
 
-export const DetailFasilitator = () => {
+export const DetailFasilitator = ({ detailfasilitator }) => {
+
   const [value, setValue] = useState('');
   const [openEdit, setOpenEdit] = useState(false);
   const [openST, setOpenST] = useState(false);
@@ -39,6 +40,9 @@ export const DetailFasilitator = () => {
   const handleCloseSKM = () => setOpenSKM(false)
   const handleOpenSPJ = () => setOpenSPJ(true)
   const handleCloseSPJ = () => setOpenSPJ(false)
+
+  const { NIK, Nama, NamaBank, NoRekBank } = detailfasilitator[0];
+
   return (
     <section className='mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex flex-col w-full gap-5 h-full rounded-lg '>
       <FasilitatorDialog handleClose={handleCloseEdit} open={openEdit} title={"Edit Fasilitator"} textButton={"Simpan Perubahan"} />
@@ -55,10 +59,13 @@ export const DetailFasilitator = () => {
           </div>
           <div className='p-4 flex justify-between items-center'>
             <div className='flex flex-col gap-2 text-neutral-500'>
-              <h5 className='text-heading5'>Nama Fasilitator</h5>
-              <p className='text-paragraph4'><a className='font-bold'>NIP :</a>  12345678910</p>
-              <p className='text-paragraph4'><a className='font-bold'>NIK :</a>  12345678910</p>
-              <p className='text-paragraph4'><a className='font-bold'>No Rekening :</a>  12345678910 (BNI)</p>
+              <h5 className='text-heading5'>{Nama}</h5>
+              {/* <h5 className='text-heading5'>Nama Fasilitator</h5> */}
+              {/* <p className='text-paragraph4'><a className='font-bold'>NIP :</a>  12345678910</p> */}
+              <p className='text-paragraph4'><a className='font-bold'>NIK :</a>  {NIK}</p>
+              {/* <p className='text-paragraph4'><a className='font-bold'>NIK :</a>  36871263489327</p> */}
+              <p className='text-paragraph4'><a className='font-bold'>No Rekening :</a>  {NoRekBank} ({NamaBank})</p>
+              {/* <p className='text-paragraph4'><a className='font-bold'>No Rekening :</a>  4893284923432 (BNI)</p> */}
 
               <p className='text-paragraph1'>KSBA</p>
             </div>
