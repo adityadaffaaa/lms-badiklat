@@ -8,6 +8,7 @@ use App\Models\Role\Role;
 use App\Models\Activity\Leaf;
 use App\Models\Panitia\Panitia;
 use App\Models\Peserta\Peserta;
+use App\Models\Role\SatuanKerja;
 use Illuminate\Database\Seeder;
 use App\Models\Fasilitator\Fasilitator;
 use App\Models\Peserta\PesertaActivity;
@@ -33,18 +34,29 @@ class DatabaseSeeder extends Seeder
 
         Leaf::factory(5)->create();
 
+        SatuanKerja::create([
+            'satuan_kerja' => 'KSBA'
+        ]);
+        SatuanKerja::create([
+            'satuan_kerja' => 'Teknologi Pembelajaran'
+        ]);
+        SatuanKerja::create([
+            'satuan_kerja' => 'Evbang'
+        ]);
+        SatuanKerja::create([
+            'satuan_kerja' => 'Sekretariat'
+        ]);
+
         Role::create([
-            'role' => 'KSBA'
+            'role' => 'Manajemen'
         ]);
         Role::create([
-            'role' => 'Teknologi Pembelajaran'
+            'role' => 'Panitia'
         ]);
         Role::create([
-            'role' => 'Evbang'
+            'role' => 'Fasilitator'
         ]);
-        Role::create([
-            'role' => 'Sekretariat'
-        ]);
+
 
         Fasilitator::factory(20)->create();
 

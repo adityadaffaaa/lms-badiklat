@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->bigInteger('nip')->unique();
             $table->bigInteger('nik')->unique();
             $table->foreignId('role_id');
+            $table->foreignId('satuan_kerja_id');
             $table->string('email')->unique();
             $table->string('username')->unique();
             $table->string('photo')->nullable();
