@@ -24,7 +24,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 
 
 
-export const DetailFasilitator = ({ detailfasilitator }) => {
+export const DetailFasilitator = ({ fasilitatorDetailData }) => {
 
   const [value, setValue] = useState('');
   const [openEdit, setOpenEdit] = useState(false);
@@ -41,7 +41,13 @@ export const DetailFasilitator = ({ detailfasilitator }) => {
   const handleOpenSPJ = () => setOpenSPJ(true)
   const handleCloseSPJ = () => setOpenSPJ(false)
 
-  const { NIK, Nama, NamaBank, NoRekBank } = detailfasilitator[0];
+  console.log({
+    data: fasilitatorDetailData[0]
+  });
+
+  const { nama, nip, bank, no_rek_bank, satuan_kerja, surat_tugas, surat_keterangan_mengajar, surat_pertanggung_jawaban } = fasilitatorDetailData[0];
+
+  // const { NIK, Nama, NamaBank, NoRekBank } = detailfasilitator[0];
 
   return (
     <section className='mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex flex-col w-full gap-5 h-full rounded-lg '>
@@ -59,15 +65,15 @@ export const DetailFasilitator = ({ detailfasilitator }) => {
           </div>
           <div className='p-4 flex justify-between items-center'>
             <div className='flex flex-col gap-2 text-neutral-500'>
-              <h5 className='text-heading5'>{Nama}</h5>
+              <h5 className='text-heading5'>{nama}</h5>
               {/* <h5 className='text-heading5'>Nama Fasilitator</h5> */}
               {/* <p className='text-paragraph4'><a className='font-bold'>NIP :</a>  12345678910</p> */}
-              <p className='text-paragraph4'><a className='font-bold'>NIK :</a>  {NIK}</p>
+              <p className='text-paragraph4'><a className='font-bold'>NIP :</a>  {nip}</p>
               {/* <p className='text-paragraph4'><a className='font-bold'>NIK :</a>  36871263489327</p> */}
-              <p className='text-paragraph4'><a className='font-bold'>No Rekening :</a>  {NoRekBank} ({NamaBank})</p>
+              <p className='text-paragraph4'><a className='font-bold'>No Rekening :</a>  {no_rek_bank} ({bank})</p>
               {/* <p className='text-paragraph4'><a className='font-bold'>No Rekening :</a>  4893284923432 (BNI)</p> */}
 
-              <p className='text-paragraph1'>KSBA</p>
+              <p className='text-paragraph1'>{satuan_kerja.satuan_kerja}</p>
             </div>
             <ButtonGradient onclick={handleOpenEdit} text={"Edit"} padX={"px-4"} padY={"py-2"} fontWeight={"font-bold"} icon={<BorderColorIcon sx={{ fontSize: 16 }} />} />
           </div>
@@ -175,8 +181,8 @@ export const DetailFasilitator = ({ detailfasilitator }) => {
               </div>
               <div className='flex items-center justify-end flex-1'>
                 <span
-                  className={`py-1 px-2 rounded-full text-neutral-50 bg-[#00C773]`}
-                >Sudah Ada</span>
+                  className={`py-1 px-2 rounded-full text-neutral-50 ${surat_tugas ? "bg-[#00C773]" : "bg-[#D00000]"} `}
+                >{surat_tugas ? "Sudah Ada" : "Belum Ada"}</span>
                 <IconButton>
                   <DownloadIcon className='text-skyBlue70' />
                 </IconButton>
@@ -193,8 +199,8 @@ export const DetailFasilitator = ({ detailfasilitator }) => {
               </div>
               <div className='flex items-center justify-end flex-1'>
                 <span
-                  className={`py-1 px-2 rounded-full text-neutral-50 bg-[#00C773]`}
-                >Sudah Ada</span>
+                  className={`py-1 px-2 rounded-full text-neutral-50 ${surat_keterangan_mengajar ? "bg-[#00C773]" : "bg-[#D00000]"}`}
+                >{surat_keterangan_mengajar ? "Sudah Ada" : "Belum Ada"}</span>
                 <IconButton>
                   <DownloadIcon className='text-skyBlue70' />
                 </IconButton>
@@ -211,8 +217,8 @@ export const DetailFasilitator = ({ detailfasilitator }) => {
               </div>
               <div className='flex items-center justify-end flex-1'>
                 <span
-                  className={`py-1 px-2 rounded-full text-neutral-50 bg-[#D00000]`}
-                >Belum Ada</span>
+                  className={`py-1 px-2 rounded-full text-neutral-50 ${surat_pertanggung_jawaban ? "bg-[#00C773]" : "bg-[#D00000]"}`}
+                >{surat_pertanggung_jawaban ? "Sudah Ada" : "Belum Ada"}</span>
                 <IconButton>
                   <DownloadIcon className='text-skyBlue70' />
                 </IconButton>

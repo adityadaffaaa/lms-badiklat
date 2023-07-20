@@ -2,8 +2,12 @@
 
 namespace App\Models\Activity;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Activity\Leaf;
+use App\Models\Activity\Topik;
+use App\Models\Peserta\Peserta;
+use App\Models\Fasilitator\Fasilitator;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Thread extends Model
 {
@@ -11,18 +15,23 @@ class Thread extends Model
 
     protected $guarded = ['id'];
 
-    public function Topik()
+    public function topik()
     {
-        return $this->belongsTo(Topik::class, 'id', 'topik_id');
+        return $this->belongsTo(Topik::class, 'topik_id', 'id');
     }
-    public function Peserta()
+    public function peserta()
     {
-        return $this->belongsTo(Peserta::class, 'id', 'peserta_id');
+        return $this->belongsTo(Peserta::class, 'peserta_id', 'id');
     }
-    public function Fasilitator()
+    public function fasilitator()
     {
-        return $this->belongsTo(Fasilitator::class, 'id', 'fasilitator_id');
+        return $this->belongsTo(Fasilitator::class, 'fasilitator_id', 'id');
     }
-    
+    public function leaf()
+    {
+        return $this->belongsTo(Leaf::class, 'leaf_id', 'id');
+    }
+
+
 
 }

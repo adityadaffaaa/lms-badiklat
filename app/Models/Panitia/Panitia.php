@@ -16,15 +16,15 @@ class Panitia extends Model
 
     public function fasilitators()
     {
-        $this->hasMany(Fasilitator::class, 'panitia_id', 'id');
+        return $this->hasMany(Fasilitator::class, 'panitia_id', 'id');
     }
 
     public function role()
     {
-        $this->hasOne(Role::class, 'id', 'role_id');
+        return $this->hasOne(Role::class, 'id', 'role_id');
     }
     public function satuan_kerja()
     {
-        $this->hasOne(SatuanKerja::class, 'id', 'satuan_kerja_id');
+        return $this->hasOne(SatuanKerja::class, 'id', 'satuan_kerja_id');
     }
 }

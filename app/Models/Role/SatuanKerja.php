@@ -14,11 +14,11 @@ class SatuanKerja extends Model
 
     public function fasilitator()
     {
-        $this->belongsTo(Fasilitator::class, 'satuan_kerja_id', 'id');
+        return $this->belongsTo(Fasilitator::class, 'satuan_kerja_id', 'id');
     }
 
     public function panitia()
     {
-        $this->belongsTo(Panitia::class, 'satuan_kerja_id', 'id');
+        return $this->belongsTo(Panitia::class, 'satuan_kerja_id', 'id');
     }
 }

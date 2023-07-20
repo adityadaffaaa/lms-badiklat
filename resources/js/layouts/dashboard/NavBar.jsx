@@ -5,8 +5,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
+import { usePage, Link } from '@inertiajs/react';
 
 const NavBar = ({ title, nama, toggle }) => {
+  const { auth } = usePage().props
+
   return (
     <header className="fixed flex flex-col w-[calc(100%-48px)] md:w-[calc(100%-24px)] lg:w-[calc(100%-308px)] mt-3 shadow-defaultShadow p-3 rounded-lg gap-2  bg-[rgba(255,255,255,0.8)] backdrop-blur-md z-50 top-0 md:flex-row md:justify-between md:items-center md:border-2 md:border-skyBlue10">
       <div className='flex flex-col items-start'>
@@ -23,11 +26,13 @@ const NavBar = ({ title, nama, toggle }) => {
           <input className="outline-none border-none w-full text-paragraph4 bg-transparent placeholder:text-neutral-400" placeholder="Cari sesuatu..." type="text" name="" id="" />
           <SearchIcon className="text-neutral-500" />
         </div>
-        <IconButton color="primary">
-          <Badge badgeContent={4} color="error">
-            <NotificationsIcon className="text-skyBlue70" />
-          </Badge>
-        </IconButton>
+        <Link href='/jadwal'>
+          <IconButton color="primary">
+            <Badge badgeContent={4} color="error">
+              <NotificationsIcon className="text-skyBlue70" />
+            </Badge>
+          </IconButton>
+        </Link>
         <IconButton onClick={toggle}>
           <MenuIcon className="text-neutral-500 " />
         </IconButton>
@@ -35,7 +40,7 @@ const NavBar = ({ title, nama, toggle }) => {
           <IconButton>
             <AccountCircleIcon className="text-neutral-500" />
           </IconButton>
-          <p className="hidden md:block text-paragraph3 text-neutral-500">Daffa Fawwaz Aditya</p>
+          <p className="hidden md:block text-paragraph3 text-neutral-500">{auth.user.nama}</p>
         </div>
       </div>
     </header>

@@ -24,7 +24,7 @@ class LeafFactory extends Factory
             'leaf_title' => fake()->sentence(mt_rand(2, 4)),
             'deskripsi' => fake()->paragraph(mt_rand(1, 2)),
             'status' => 'tersedia',
-            'max_peserta' => mt_rand(1, 11),
+            'max_peserta' => mt_rand(5, 11),
             'mulai' => $start,
             'selesai' => fake()->dateTimeBetween($start->format('Y-m-d') . '+1 month', $start->format('Y-m-d') . '+1 month'),
             'fasilitator_id' => mt_rand(1, 2)

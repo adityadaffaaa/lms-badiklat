@@ -2,11 +2,13 @@
 
 namespace App\Models\Fasilitator;
 
-use App\Models\Activity\Leaf;
 use App\Models\Role\Role;
+use App\Models\Activity\Leaf;
+use App\Models\Activity\Topik;
+use App\Models\Activity\Thread;
 use App\Models\Role\SatuanKerja;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Fasilitator extends Model
 {
@@ -26,7 +28,7 @@ class Fasilitator extends Model
 
     public function role()
     {
-        return $this->hasOne(Role::class, 'role_id', 'id');
+        return $this->hasOne(Role::class, 'id', 'role_id');
     }
 
     public function satuan_kerja()
@@ -41,5 +43,14 @@ class Fasilitator extends Model
     public function panitia()
     {
         return $this->belongsTo(Panitia::class, 'id', 'panitia_id');
+    }
+
+    public function topiks()
+    {
+        return $this->hasMany(Topik::class, 'fasilitator_id', 'id');
+    }
+    public function threads()
+    {
+        return $this->hasMany(Thread::class, 'fasilitator_id', 'id');
     }
 }

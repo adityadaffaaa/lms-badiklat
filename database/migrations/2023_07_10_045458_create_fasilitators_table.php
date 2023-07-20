@@ -22,6 +22,8 @@ return new class extends Migration {
             $table->string('username')->unique();
             $table->string('photo')->nullable();
             $table->string('password');
+            $table->string('bank')->nullable();
+            $table->integer('no_rek_bank')->nullable();
             $table->string('tempat_lahir')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->enum('agama', ['islam', 'kristen', 'hindu', 'buddha', 'konghucu'])->nullable();

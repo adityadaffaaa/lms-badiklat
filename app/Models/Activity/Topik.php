@@ -2,8 +2,12 @@
 
 namespace App\Models\Activity;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Activity\Leaf;
+use App\Models\Activity\Thread;
+use App\Models\Peserta\Peserta;
+use App\Models\Fasilitator\Fasilitator;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Topik extends Model
 {
@@ -18,11 +22,16 @@ class Topik extends Model
 
     public function fasilitator()
     {
-        return $this->belongsTo(Fasilitator::class, 'fasilitator', 'id');
+        return $this->belongsTo(Fasilitator::class, 'fasilitator_id', 'id');
     }
 
     public function leaf()
     {
-        return $this->belongsTo(Leaf::class, 'id', 'leaf_id');
+        return $this->belongsTo(Leaf::class, 'leaf_id', 'id');
+    }
+
+    public function threads()
+    {
+        return $this->hasMany(Thread::class, 'topik_id', 'id')->with('peserta');
     }
 }

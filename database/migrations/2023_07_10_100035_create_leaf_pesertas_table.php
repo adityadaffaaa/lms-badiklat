@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('leaf_pesertas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('leaf_id')->constrained();
-            $table->foreignId('peserta_id')->constrained();
+            $table->foreignId('leaf_id');
+            $table->foreignId('peserta_id');
             $table->timestamps();
         });
     }

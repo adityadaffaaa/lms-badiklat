@@ -2,14 +2,15 @@ import React from 'react'
 import {
   ButtonGradient
 } from "../../components/dashboard"
-import { dataPanitia } from '@/static/dashboard';
+// import { dataPanitia } from '@/static/dashboard';
 import { Link } from '@inertiajs/react';
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddIcon from '@mui/icons-material/Add';
 import IconButton from "@mui/material/IconButton";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Dashboard from '@/layouts/dashboard/Dashboard';
-export const Panitia = () => {
+export const Panitia = ({ dataPanitia }) => {
+ 
   return (
     <section className='mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex md:border-2 md:border-skyBlue10 flex-col  w-full gap-3 h-full  bg-white shadow-defaultShadow rounded-lg'>
       <div className='flex justify-between p-4'>
@@ -32,7 +33,7 @@ export const Panitia = () => {
             </tr>
           </thead>
           <tbody className="text-paragraph2 text-neutral-600">
-            {dataPanitia.map(({ nama, nip, satKer }, index) => {
+            {dataPanitia.map(({ id, nama, nip, satuan_kerja }, index) => {
               const oddIndex = index % 2 === 1;
               return <tr key={index} className={`${oddIndex ? "bg-neutral-100" : ""} `}>
                 <td className=" py-3 pl-4" align="left">
@@ -46,9 +47,9 @@ export const Panitia = () => {
                 <td className="" align="left">
                   {nip}
                 </td>
-                <td align="center">{satKer}</td>
+                <td align="center">{satuan_kerja.satuan_kerja}</td>
                 <td align='center' className=''>
-                  <Link href='panitia/list-fasilitator'>
+                  <Link href={`panitia/${id}`}>
                     <ButtonGradient text={"Detail"} padX={"px-4"} padY={"py-1"} />
                   </Link>
                   <IconButton >

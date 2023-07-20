@@ -23,9 +23,9 @@ class PanitiaFactory extends Factory
             'nik' => fake()->unique()->randomNumber(9),
             'role_id' => 1,
             'satuan_kerja_id' => mt_rand(1, 4),
-            'email' => fake()->unique()->safeEmail(),
+            'email' => fake()->unique()->freeEmail(),
             'username' => fake()->unique()->userName(),
-            'password' => fake()->password(10, 15),
+            'password' => "password"
         ];
     }
 }

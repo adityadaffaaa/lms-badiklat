@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Support\Facades\Redirect;
+use Log;
+use PHPUnit\Event\Code\Throwable;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,13 +31,25 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(Request $request)
     {
-        $request->authenticate();
+        // if (Auth::attempt($request->only(['password', 'email']))) {
+        //     return Inertia::location(route('overview'));
+        // }
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
 
-        $request->session()->regenerate();
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();            
+            return Inertia::location(route('overview'));
+        }
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+
+        return back()->withErrors([
+            'loginError' => 'Login Gagal!'
+        ]);
     }
 
     /**
@@ -42,12 +57,13 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('web')->logout();
-
+        // Auth::guard('web')->logout();
+        Auth::logout();
+        
         $request->session()->invalidate();
-
+        
         $request->session()->regenerateToken();
-
-        return redirect('/');
+        
+        return redirect(route('/'));
     }
 }

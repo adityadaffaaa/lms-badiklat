@@ -4,14 +4,14 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import HomeIcon from '@mui/icons-material/Home';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
-import { ForumChat, Peserta, Jadwal, Overview, Panitia } from './pages/dashboard';
+import { ForumChat, Peserta, Jadwal, Overview, Panitia, Fasilitator } from './pages/dashboard';
 
 const routes = [
   {
     layout: "Dashboard",
     role: {
-      fasilitator: 1,
-      panitia: 0,
+      fasilitator: 0,
+      panitia: 1,
       management: 0
     },
     isSignIn: true,
@@ -20,7 +20,7 @@ const routes = [
         title: 'Overview',
         element: <Overview />,
         icon: <HomeIcon />,
-        path: '/',
+        path: '/overview',
       },
       {
         element: <p className="text-paragraph5 font-bold text-neutral-400">MENU</p>
@@ -39,7 +39,7 @@ const routes = [
       },
       {
         title: 'Fasilitator',
-        element: <Peserta />,
+        element: <Fasilitator />,
         icon: <HowToRegIcon />,
         path: '/fasilitator',
       },

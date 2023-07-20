@@ -1,23 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\Fasilitator;
+namespace App\Http\Controllers\Panitia;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use App\Models\Activity\Leaf;
+use App\Models\Panitia\Panitia;
+use App\Models\Peserta\Peserta;
 use App\Http\Controllers\Controller;
 use App\Models\Fasilitator\Fasilitator;
 
-class FasilitatorController extends Controller
+class PanitiaController extends Controller
 {
+    //
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
-        $data_fasiliator = Fasilitator::with('satuan_kerja')->limit(10)->get();
-        return Inertia::render('dashboard/Fasilitator', [
-            "fasilitatorData" => $data_fasiliator
+        $data_panitia = Panitia::with('satuan_kerja')->get();
+        return Inertia::render('dashboard/Panitia', [
+            'dataPanitia' => $data_panitia
         ]);
     }
 
@@ -43,10 +48,17 @@ class FasilitatorController extends Controller
     public function show(string $id)
     {
         //
-        $data_detail_fasiliator = Fasilitator::with(['satuan_kerja'])->where('id', $id)->get();
-        // dd($data_detail_fasiliator);
-        return Inertia::render('dashboard/DetailFasilitator', [
-            "fasilitatorDetailData" => $data_detail_fasiliator
+        $data_leaf_fasilitators = Leaf::with(['fasilitator', 'pesertas'])->get();
+        return Inertia::render('dashboard/ListFasilitator', [
+            'dataLeafFasilitator' => $data_leaf_fasilitators,
+        ]);
+    }
+    public function show_detail(string $id)
+    {
+        //
+        $peserta = Peserta::limit(10)->get();
+        return Inertia::render('dashboard/ListPesertaPanitia', [
+            'peserta' => $peserta,
         ]);
     }
 

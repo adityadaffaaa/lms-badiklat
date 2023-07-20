@@ -12,7 +12,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Dashboard from '@/layouts/dashboard/Dashboard';
 import { Link } from '@inertiajs/react';
 
-export const Fasilitator = ({ fasilitator }) => {
+export const Fasilitator = ({ fasilitatorData }) => {
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -42,7 +42,7 @@ export const Fasilitator = ({ fasilitator }) => {
             </tr>
           </thead>
           <tbody className="text-paragraph2 text-neutral-600">
-            {fasilitator.map(({ Nama, NIK, bidang, st, skm, spj }, index) => {
+            {/* {fasilitator.map(({ Nama, NIK, bidang, st, skm, spj }, index) => {
               bidang = "KSBA";
               st = 1
               skm = 0
@@ -87,8 +87,8 @@ export const Fasilitator = ({ fasilitator }) => {
                   </td>
                 </tr>
               )
-            })}
-            {/* {dataFasilitator.map(({ nama, nip, bidang, st, skm, spj }, index) => {
+            })} */}
+            {fasilitatorData.map(({ id, nama, nip, satuan_kerja, surat_tugas, surat_keterangan_mengajar, surat_pertanggung_jawaban }, index) => {
               const oddIndex = index % 2 === 1;
               return (
                 <tr key={index} className={`${oddIndex ? "bg-neutral-100" : ""} `}>
@@ -103,24 +103,25 @@ export const Fasilitator = ({ fasilitator }) => {
                   <td className="" align="left">
                     {nip}
                   </td>
-                  <td align="center">{bidang}</td>
+                  <td align="center">{satuan_kerja.satuan_kerja}</td>
                   <td align="center">
                     <span
-                      className={`py-1 px-2 rounded-full text-neutral-50 ${st ? "bg-[#00C773]" : "bg-[#D00000]"}`}
-                    >{`${st ? "Sudah Ada" : "Belum Ada"}`}</span>
+                      className={`py-1 px-2 rounded-full text-neutral-50 ${surat_tugas ? "bg-[#00C773]" : "bg-[#D00000]"}`}
+                    >{`${surat_tugas ? "Sudah Ada" : "Belum Ada"}`}</span>
                   </td>
                   <td align="center">
                     <span
-                      className={`py-1 px-2 rounded-full text-neutral-50 ${skm ? "bg-[#00C773]" : "bg-[#D00000]"}`}
-                    >{`${skm ? "Sudah Ada" : "Belum Ada"}`}</span>
+                      className={`py-1 px-2 rounded-full text-neutral-50 ${surat_keterangan_mengajar ? "bg-[#00C773]" : "bg-[#D00000]"}`}
+                    >{`${surat_keterangan_mengajar ? "Sudah Ada" : "Belum Ada"}`}</span>
                   </td>
                   <td align="center">
                     <span
-                      className={`py-1 px-2 rounded-full text-neutral-50 ${spj ? "bg-[#00C773]" : "bg-[#D00000]"}`}
-                    >{`${spj ? "Sudah Ada" : "Belum Ada"}`}</span>
+                      className={`py-1 px-2 rounded-full text-neutral-50 ${surat_pertanggung_jawaban ? "bg-[#00C773]" : "bg-[#D00000]"}`}
+                    >{`${surat_pertanggung_jawaban ? "Sudah Ada" : "Belum Ada"}`}</span>
                   </td>
                   <td align='center' className=''>
-                    <Link href='fasilitator/detail-fasilitator'>
+                    {/* fasilitator/detail-fasilitator */}
+                    <Link href={`fasilitator/${id}`}>
                       <ButtonGradient text={"Detail"} padX={"px-4"} padY={"py-1"} />
                     </Link>
                     <IconButton >
@@ -129,7 +130,7 @@ export const Fasilitator = ({ fasilitator }) => {
                   </td>
                 </tr>
               )
-            })} */}
+            })}
           </tbody>
         </table>
       </div>

@@ -10,13 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('threads', function (Blueprint $table) {
+        Schema::create('jadwal_pesertas', function (Blueprint $table) {
             $table->id();
-            $table->text('body')->nullable();
-            $table->foreignId('leaf_id');
-            $table->foreignId('topik_id');
+            $table->foreignId('jadwal_id');
             $table->foreignId('peserta_id');
-            $table->foreignId('fasilitator_id');
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('threads');
+        Schema::dropIfExists('jadwal_pesertas');
     }
 };

@@ -16,9 +16,9 @@ return new class extends Migration {
             $table->text('body')->nullable();
             $table->integer('thumbs_up')->default(0);
             $table->integer('thumbs_down')->default(0);
-            $table->foreignId('leaf_id')->constrained();
-            $table->foreignId('peserta_id')->constrained();
-            $table->foreignId('fasilitator_id')->constrained();
+            $table->foreignId('leaf_id');
+            $table->foreignId('peserta_id');
+            $table->foreignId('fasilitator_id');
             $table->timestamps();
         });
     }

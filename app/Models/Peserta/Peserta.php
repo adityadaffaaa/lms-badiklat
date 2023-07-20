@@ -2,8 +2,12 @@
 
 namespace App\Models\Peserta;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Activity\Jadwal;
+use App\Models\Activity\Leaf;
+use App\Models\Activity\Topik;
+use App\Models\Activity\Thread;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Peserta extends Model
 {
@@ -23,18 +27,22 @@ class Peserta extends Model
     {
         return $this->hasMany(NilaiAkhir::class, 'peserta_id', 'id');
     }
-
-    public function leafPesertas()
+    public function topiks()
     {
-        return $this->hasMany(LeafPeserta::class, 'peserta_id', 'id');
+        return $this->hasMany(Topik::class, 'peserta_id', 'id');
+    }
+    public function threads()
+    {
+        return $this->hasMany(Thread::class, 'peserta_id', 'id');
+    }
+    public function leafs()
+    {
+        return $this->belongsToMany(Leaf::class, 'leaf_pesertas')->withTimestamps();
     }
 
-    public function Topiks()
+    public function jadwals()
     {
-        return $this->hasMany(LeafPeserta::class, 'topik_id', 'id');
+        return $this->belongsToMany(Jadwal::class, 'jadwal_pesertas')->withTimestamps();
     }
-
-
-
 
 }

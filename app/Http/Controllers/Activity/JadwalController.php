@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Activity;
 
-use App\Http\Controllers\Controller;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
+use App\Models\Activity\Jadwal;
+use App\Http\Controllers\Controller;
 
 class JadwalController extends Controller
 {
@@ -13,6 +15,10 @@ class JadwalController extends Controller
     public function index()
     {
         //
+        $data_jadwal = Jadwal::with(['fasilitator', 'pesertas', 'leaf'])->latest()->limit(30)->get();
+        return Inertia::render('dashboard/Jadwal', [
+            'jadwalData' => $data_jadwal
+        ]);
     }
 
     /**

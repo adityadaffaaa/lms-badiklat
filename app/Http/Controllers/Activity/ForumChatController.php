@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Fasilitator;
+namespace App\Http\Controllers\Activity;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use App\Models\Activity\Leaf;
+use App\Models\Activity\Topik;
 use App\Http\Controllers\Controller;
-use App\Models\Fasilitator\Fasilitator;
 
-class FasilitatorController extends Controller
+class ForumChatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class FasilitatorController extends Controller
     public function index()
     {
         //
-        $data_fasiliator = Fasilitator::with('satuan_kerja')->limit(10)->get();
-        return Inertia::render('dashboard/Fasilitator', [
-            "fasilitatorData" => $data_fasiliator
+        $data_leaf = Leaf::with(['pesertas', 'topiks', 'threads'])->limit(10)->orderBy('id', 'DESC')->get();
+        return Inertia::render('dashboard/ForumChat', [
+            "dataLeaf" => $data_leaf
         ]);
     }
 
@@ -43,10 +44,9 @@ class FasilitatorController extends Controller
     public function show(string $id)
     {
         //
-        $data_detail_fasiliator = Fasilitator::with(['satuan_kerja'])->where('id', $id)->get();
-        // dd($data_detail_fasiliator);
-        return Inertia::render('dashboard/DetailFasilitator', [
-            "fasilitatorDetailData" => $data_detail_fasiliator
+        $data_leaf = Leaf::with(['fasilitator', 'pesertas', 'topiks'])->where('id', $id)->get();
+        return Inertia::render('dashboard/Leaf', [
+            "dataLeaf" => $data_leaf
         ]);
     }
 

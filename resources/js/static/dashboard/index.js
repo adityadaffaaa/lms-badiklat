@@ -9,3 +9,5 @@ export * from "./dataThreads";
 export * from "./dataFasilitator";
 export * from "./dataLeaf";
 export * from "./dataPanitia";
+export * from "./months";
+export * from "./days";

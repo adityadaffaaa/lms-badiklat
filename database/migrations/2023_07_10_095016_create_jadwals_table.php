@@ -12,11 +12,14 @@ return new class extends Migration {
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-            $table->string('topik')->nullable();
+            $table->text('topik')->nullable();
             $table->text('deskripsi')->nullable();
-            $table->timestamp('waktu_mulai')->nullable();
+            $table->time('jam_mulai')->nullable();
+            $table->time('jam_selesai')->nullable();
+            $table->date('tanggal')->nullable();
             $table->string('meeting_link')->nullable();
-            $table->foreignId('fasilitator_id')->constrained();
+            $table->foreignId('fasilitator_id');
+            $table->foreignId('leaf_id');
             $table->timestamps();
         });
     }

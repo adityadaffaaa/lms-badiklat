@@ -12,7 +12,10 @@ import BorderColorIcon from "@mui/icons-material/BorderColor";
 import LinearProgress from "@mui/material/LinearProgress";
 import Dashboard from "@/layouts/dashboard/Dashboard";
 
-export const DetailPeserta = () => {
+export const DetailPeserta = ({ dataPeserta }) => {
+  console.log({
+    data_peserta: dataPeserta
+  })
   const [open, setOpen] = useState(false);
   const [weeklyEval, setWeeklyEval] = useState(true);
   const handleOpenWeeklyEval = () => {
@@ -23,6 +26,9 @@ export const DetailPeserta = () => {
     setOpen(true);
     setWeeklyEval(false);
   }
+
+  const { nama, nip, total_jp } = dataPeserta[0]
+
   const handleClose = () => setOpen(false);
   return (
     <section className='mt-[calc(102px+20px)] md:mt-[calc(68px+20px)] flex flex-col w-full gap-5 h-full rounded-lg '>
@@ -35,8 +41,8 @@ export const DetailPeserta = () => {
           />
           <div className='flex flex-col text-neutral-600 gap-1'>
             <p className='text-paragraph2'>Kelompok 1</p>
-            <h3 className='text-heading3'>Nama Peserta</h3>
-            <p className='text-paragraph1'>12345678910</p>
+            <h3 className='text-heading3'>{nama}</h3>
+            <p className='text-paragraph1'>{nip}</p>
           </div>
         </div>
         <div className='flex flex-row  w-[400px] justify-between'>
@@ -182,9 +188,9 @@ export const DetailPeserta = () => {
               <LinearProgress
                 variant='determinate'
                 className='w-full'
-                value={90}
+                value={total_jp}
               />
-              <h4 className='text-heading4 text-skyBlue70 my-0'>90%</h4>
+              <h4 className='text-heading4 text-skyBlue70 my-0'>{total_jp}%</h4>
             </div>
           </div>
           <div className='p-6 shadow-defaultShadow rounded-lg flex flex-row justify-between items-center'>
@@ -195,9 +201,9 @@ export const DetailPeserta = () => {
               <LinearProgress
                 variant='determinate'
                 className='w-full'
-                value={90}
+                value={total_jp}
               />
-              <h4 className='text-heading4 text-skyBlue70 my-0'>90%</h4>
+              <h4 className='text-heading4 text-skyBlue70 my-0'>{total_jp}%</h4>
             </div>
           </div>
           <div className='p-6 shadow-defaultShadow rounded-lg flex flex-row justify-between items-center'>
@@ -208,9 +214,9 @@ export const DetailPeserta = () => {
               <LinearProgress
                 variant='determinate'
                 className='w-full'
-                value={90}
+                value={total_jp}
               />
-              <h4 className='text-heading4 text-skyBlue70 my-0'>90%</h4>
+              <h4 className='text-heading4 text-skyBlue70 my-0'>{total_jp}%</h4>
             </div>
           </div>
           <div className='p-6 shadow-defaultShadow rounded-lg flex flex-row justify-between items-center'>
@@ -221,24 +227,12 @@ export const DetailPeserta = () => {
               <LinearProgress
                 variant='determinate'
                 className='w-full'
-                value={90}
+                value={total_jp}
               />
-              <h4 className='text-heading4 text-skyBlue70 my-0'>90%</h4>
+              <h4 className='text-heading4 text-skyBlue70 my-0'>{total_jp}%</h4>
             </div>
           </div>
-          <div className='p-6 shadow-defaultShadow rounded-lg flex flex-row justify-between items-center'>
-            <p className='text-paragraph1 text-neutral-600 flex-1'>
-              Poin Keaktifan
-            </p>
-            <div className='flex flex-row flex-[2] items-center gap-7'>
-              <LinearProgress
-                variant='determinate'
-                className='w-full'
-                value={90}
-              />
-              <h4 className='text-heading4 text-skyBlue70 my-0'>90%</h4>
-            </div>
-          </div>
+
         </div>
         <div className='flex flex-col h-full shadow-defaultShadow p-6 rounded-lg flex-[1_1_400px] gap-6'>
           <div className='flex flex-row items-center justify-between'>
